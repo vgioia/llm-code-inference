@@ -1,0 +1,17 @@
+```
+N = int(input())
+permutacao = list(map(int, input().split()))
+k = 0
+while True:
+    flag = False
+    for i in range(len(permutacao) - 1):
+        if permutacao[i] > permutacao[i + 1]:
+            k += 1
+            partL = permutacao[:i+1]
+            partR = permutacao[i+1:]
+            break
+    else:
+        print(k)
+        exit()
+    permutacao = list(map(str, partR)) + list(map(str, partL))
+```

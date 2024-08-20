@@ -1,0 +1,43 @@
+Problema M
+Malha A´erea
+No reino de Quadradˆonia, o monarca quer rever todas as tarifas a´ereas. Para isso, pediu ao seu
+contador uma tabela com as propostas de novos pre¸cos.
+Todavia, o monarca estudou no Instituto de Computa¸c˜ao e Programa¸c˜ao de Chapec´o (ICPC) e
+tem conhecimento suficiente para exigir coerˆencia na tabela. A tabela ´e coerente se nenhuma rota com
+escalas ´e mais barata do que o voo direto.
+Verificada a coerˆencia da tabela, o monarca gostaria de diminuir o n´umero de voos diretos, sem
+contudo aumentar os custos das viagens.
+Seu problema ´e verificar a coerˆencia da tabela e, sendo esta coerente, informar ao monarca quantas
+voos diretos podem ser eliminados sem encarecer o custo de qualquer viagem.
+Entrada
+A primeira linha cont´em N (1 ≤ N ≤ 100), que ´e o n´umero de cidades da Quadradˆonia servidas por
+voos. Existem ent˜ao mais N linhas, L1, L2, . . . , LN . A linha Li cont´em N inteiros, Ci1, Ci2, . . . , CiN ,
+onde Cij ´e o custo do voo direto entre as cidades i e j. O custo de ida e de volta entre duas cidades ´e
+sempre igual, ou seja, Cij = Cji, para todos os pares {i, j} tais que 1 ≤ i ≤ N e 1 ≤ j ≤ N. Quando
+i = j, Cij = 0. Quando i ̸= j, 1 ≤ Cij ≤ 103
+.
+Sa´ıda
+Imprima uma linha contendo um inteiro. Se a tabela for incoerente, o inteiro deve ser igual a
+-1. Se a tabela for coerente, o inteiro deve ser igual ao maior n´umero de voos diretos que podem ser
+removidos sem aumento nos custos das viagens para os passageiros.
+Exemplo de entrada 1
+3
+0 1 2
+1 0 1
+2 1 0
+Exemplo de sa´ıda 1
+1
+Exemplo de entrada 2
+3
+0 2 2
+2 0 2
+2 2 0
+Exemplo de sa´ıda 2
+0
+Exemplo de entrada 3
+3
+0 2 9
+2 0 2
+9 2 0
+Exemplo de sa´ıda 3
+-1

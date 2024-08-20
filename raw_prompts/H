@@ -1,0 +1,69 @@
+Problema H
+Honroso Trabalhador
+Rafael vive em uma sociedade igualit´aria ideal: todos os trabalhos oferecem um sal´ario di´ario igual
+e vocˆe s´o precisa trabalhar em um emprego que seja de seu interesse. Infelizmente, nem essa utopia
+estava preparada para o fato de que Rafael n˜ao tem nenhuma habilidade.
+Para compensar essa situa¸c˜ao, Rafael ir´a trabalhar apenas em empreitadas, onde empregadores
+em potencial n˜ao ter˜ao tempo de reparar no qu˜ao pouco qualificado Rafael ´e para o trabalho. Mesmo
+assim, dada sua desqualifica¸c˜ao para esses trabalhos, ele precisa comprar cartas de recomenda¸c˜ao falsas
+para ser empregado.
+Rafael tem N trabalhos `a sua disposi¸c˜ao nos pr´oximos dias. O i-´esimo trabalho come¸ca no dia ℓi
+,
+termina no final do dia ri e paga exatamente S moedas de ouro por dia trabalhado. Rafael ´e realmente
+ruim de servi¸co, e n˜ao consegue trabalhar em dois empregos ao mesmo tempo; al´em disso, ele pode
+come¸car no emprego i apenas no dia ℓi mas, uma vez empregado, ele pode se demitir no final de cada
+dia, mant´endo o dinheiro dos dias trabalhados (inclusive o ´ultimo), sendo assim capaz de come¸car
+outro trabalho a partir do dia seguinte (mas n˜ao no mesmo dia de sua demiss˜ao). Rafael tamb´em sabe
+que ele precisa de ci moedas de ouro para comprar a carta de recomenda¸c˜ao falsa para o trabalho i.
+Ciente de suas inabilidades e da necessidade das cartas falsas, Rafael reservou um dinheiro e ´e sempre
+capaz de comprar quantas cartas forem necess´arias, mesmo antes de come¸car em qualquer um dos N
+trabalhos.
+Dadas as descri¸c˜oes dos trabalhos dispon´ıveis, qual o lucro m´aximo que Rafael pode conseguir,
+levando em conta os custos para a compra das cartas falsas?
+Entrada
+A primeira linha cont´em dois inteiros N (1 ≤ N ≤ 106
+) e S (1 ≤ S ≤ 109
+), que representam o
+n´umero de trabalhos dispon´ıveis e o quanto cada um deles paga por dia trabalhado.
+Cada uma das N linhas seguintes cont´em trˆes inteiros: ℓi
+, ri e ci (1 ≤ ℓi ≤ ri ≤ 109
+, 1 ≤ ci ≤ 109
+),
+que representam a data de in´ıcio, a data de fim, e o custo de se comprar uma carta de recomenda¸c˜ao
+falsa para o trabalho i, respectivamente.
+Sa´ıda
+Imprima um ´unico inteiro que corresponde ao lucro m´aximo de Rafael ap´os o fim de todos os
+trabalhos.
+Exemplo de entrada 1
+3 3
+1 5 10
+2 10 4
+5 15 1
+Exemplo de sa´ıda 1
+37
+Explica¸c˜ao do exemplo 1 :
+O ideal ´e come¸car o segundo trabalho e depois passar para o terceiro, totalizando 14×3−4−1 = 37
+moedas de ouro.
+Maratona de Programa¸c˜ao da SBC – ICPC – 2023 13
+Exemplo de entrada 2
+3 5
+1 1 3
+2 3 4
+3 3 1
+Exemplo de sa´ıda 2
+8
+Exemplo de entrada 3
+1 1000
+1 1 654
+Exemplo de sa´ıda 3
+346
+Explica¸c˜ao do exemplo 3 :
+Mesmo que ele tenha que tirar dinheiro de sua reserva para comprar a carta de recomenda¸c˜ao
+falsa, ele ainda pode obter algum lucro.
+Exemplo de entrada 4
+1 5
+1 3 20
+Exemplo de sa´ıda 4
+0
+Explica¸c˜ao do exemplo 4 :
+N˜ao vale a pena gastar dinheiro com uma carta de recomenda¸c˜ao falsa para este trabalho.

@@ -1,0 +1,65 @@
+
+Problema F
+F´erias Cansativas
+William est´a planejando suas pr´oximas f´erias. Um tema recorrente em todas as suas f´erias ´e a necessidade de lidar com o cansa¸co. Alguns dias ele nem aproveita muito, pois depois de v´arias atividades
+o cansa¸co come¸ca a ser maior do que ele consegue suportar.
+Desta vez, William teve uma ideia. Ele vai estimar o impacto de cada uma das atividades de turismo
+em sua disposi¸c˜ao. Ele notou que algumas das atividades de f´erias, como esportes e caminhadas, s˜ao
+cansativas, consumindo sua disposi¸c˜ao, enquanto outras atividades, como pe¸cas de teatro e musicais,
+s˜ao revigorantes, recuperando sua disposi¸c˜ao.
+Mais precisamente, William come¸ca com D unidades de disposi¸c˜ao e separa suas atividades em
+dois grupos: C atividades cansativas e R atividades revigorantes. Cada atividade cansativa requer
+uma certa quantidade de disposi¸c˜ao e, portanto, consome tal quantidade, quando realizada. Cada
+atividade revigorante lhe fornece uma certa quantidade de disposi¸c˜ao, quando realizada. Al´em disso,
+ele ordena as atividades de cada um dos grupos segundo suas preferˆencias, pois h´a atividades que ele
+est´a mais ansioso para realizar. Note que atividades dos dois conjuntos podem ser intercaladas, mas
+William nunca far´a uma atividade de um grupo sem ter feito todas as anteriores, pois isto violaria
+suas preferˆencias.
+Ao longo de suas f´erias, ao decidir qual atividade realizar em seguida, ele escolher´a a primeira
+atividade cansativa ainda n˜ao realizada, se tiver disposi¸c˜ao suficiente para fazˆe-la. Caso contr´ario, ele
+realizar´a a pr´oxima atividade revigorante ainda n˜ao realizada, se ainda houver, recuperando uma certa
+quantidade de disposi¸c˜ao. Naturalmente, caso n˜ao haja mais atividades cansativas remanescentes em
+algum momento, ele poder´a simplesmente realizar todas as atividades revigorantes restantes.
+Agora, tendo em vista este processo, ele pediu sua ajuda para determinar quantas atividades
+(incluindo cansativas e revigorantes) ele conseguir´a realizar.
+Entrada
+A primeira linha da entrada cont´em 3 inteiros, D, C e R, indicando respectivamente a quantidade
+de disposi¸c˜ao inicial, o n´umero de atividades cansativas e o n´umero de atividades revigorantes (1 ≤ D ≤
+105
+, 1 ≤ C ≤ 104
+e 1 ≤ R ≤ 104
+). Cada uma das C linhas seguintes cont´em um inteiro Ci (1 ≤ Ci ≤ 105
+para 1 ≤ i ≤ C), indicando o consumo de disposi¸c˜ao para uma atividade cansativa, em ordem de
+preferˆencia. Finalmente, cada uma das R linhas seguintes cont´em um inteiro Ri (1 ≤ Ri ≤ 105
+para 1 ≤ i ≤ R), indicando o retorno de disposi¸c˜ao para uma atividade revigorante, em ordem de
+preferˆencia.
+Sa´ıda
+Imprima uma ´unica linha contendo um ´unico inteiro, o n´umero total de atividades (incluindo
+cansativas e revigorantes) que William conseguir´a realizar.
+Exemplo de entrada 1
+40 3 3
+30
+20
+10
+5
+5
+5
+Exemplo de sa´ıda 1
+5
+Maratona de Programa¸c˜ao da SBC – ICPC – 2023 10
+Exemplo de entrada 2
+40 2 2
+60
+80
+5
+10
+Exemplo de sa´ıda 2
+2
+Exemplo de entrada 3
+100 3 1
+60
+60
+50
+10
+Exemplo de sa´ıda 3
+2

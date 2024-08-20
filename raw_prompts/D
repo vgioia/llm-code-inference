@@ -1,0 +1,42 @@
+Problema D
+Desvio
+Na cidade de Nlogonia, o prefeito finalmente vai cumprir sua promessa de campanha e ir´a repavimentar
+alguns trechos de ruas. Contudo, enquanto um trecho estiver sendo repavimentado, os carros n˜ao
+poder˜ao us´a-lo e portanto um desvio deve ser utilizado.
+Cada trecho de rua conecta duas esquinas na cidade, tem comprimento positivo e pode ser percorrido em ambas as dire¸c˜oes.
+Um desvio ´e um caminho alternativo que pode servir como um substituto tempor´ario para o trecho
+de rua em obras. Mais especificamente, se o trecho que conecta as esquinas U e V estiver interditado, o
+desvio deve ser uma sequˆencia de trechos de ruas que come¸ca em U, termina em V , e n˜ao usa o trecho
+que conecta U diretamente com V . O objetivo ´e encontrar o desvio mais curto para cada trecho, de
+forma a minimizar o impacto enquanto as obras estiverem sendo feitas.
+Como Integrante do Centro de Pavimenta¸c˜ao e Carros, vocˆe deve ajudar o prefeito a calcular qual
+´e o comprimento do desvio mais curto, para cada trecho.
+Entrada
+A primeira linha cont´em dois inteiros, N e M (1 ≤ N ≤ 300), que representam, respectivamente,
+o n´umero de esquinas e o n´umero de trechos de ruas. Cada uma das M linhas seguintes cont´em trˆes
+inteiros: U, V , e L (1 ≤ U ≤ N, 1 ≤ V ≤ N, U ̸= V , 1 ≤ L ≤ 106
+), que representam um trecho de
+m˜ao dupla de comprimento L que liga as esquinas U e V . Nenhum trecho de rua ´e representado mais
+de uma vez.
+Sa´ıda
+Imprima M linhas, onde cada linha cont´em um inteiro. O i-´esimo inteiro deve ser o comprimento
+do desvio mais curto para o i-´esimo trecho, ou -1 se n˜ao for poss´ıvel fazer um desvio. A ordem dos
+trechos na sa´ıda deve ser a mesma ordem fornecida na entrada.
+Exemplo de entrada 1
+4 5
+1 2 4
+1 3 8
+2 3 4
+4 1 2
+3 4 3
+Exemplo de sa´ıda 1
+9
+5
+9
+11
+10
+Exemplo de entrada 2
+2 1
+1 2 1
+Exemplo de sa´ıda 2
+-1

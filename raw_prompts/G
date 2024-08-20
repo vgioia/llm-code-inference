@@ -1,0 +1,48 @@
+Maratona de Programa¸c˜ao da SBC – ICPC – 2023 11
+Problema G
+Grande Tratado da Bytelˆandia
+A Grande Guerra da Bytelˆandia chegou ao fim. Os reinos restantes agora est˜ao discutindo o Tratado
+de Divis˜ao, que dividir´a todas as terras do mundo entre eles. Este tratado se refere n˜ao apenas ao
+mundo conhecido, mas tamb´em a quaisquer territ´orios ainda n˜ao descobertos ou habitados, incluindo
+terra ou mar. Podemos assumir que o mundo ´e um plano infinito.
+Cada reino no continente da Bytelˆandia tem uma ´unica capital, e o Tratado de Divis˜ao ser´a baseado
+em suas localiza¸c˜oes: ele declara que cada peda¸co de terra pertence ao reino cuja capital ´e a mais
+pr´oxima em um voo de p´assaro (ou em linha reta). Em outras palavras: onde quer que vocˆe esteja no
+mundo, se C ´e a capital mais pr´oxima de vocˆe, vocˆe estar´a no territ´orio do reino de C. Se houver um
+empate entre as distˆancias de duas ou mais capitais, esse lugar estar´a na fronteira entre seus reinos.
+Sob este tratado, alguns reinos podem ficar cercados por outros, enquanto outros reinos podem
+ficar com territ´orio ilimitado. Por isso, alguns monarcas est˜ao contestando o tratado. Para informar
+essa discuss˜ao, eles exigem sua ajuda. Dadas as coordenadas das localiza¸c˜oes de cada capital no
+continente da Bytelˆandia, vocˆe deve descobrir quais reinos teriam territ´orios infinitos sob o Tratado
+de Divis˜ao.
+Entrada
+A primeira linha da entrada cont´em um ´unico inteiro N (2 ≤ N ≤ 105
+), o n´umero de reinos.
+Cada reino ´e identificado por um n´umero inteiro ´unico entre 1 e N. Cada uma das N linhas seguintes
+cont´em dois inteiros X e Y (0 ≤ X, Y ≤ 104
+), as coordenadas 2D da localiza¸c˜ao da capital de um
+reino. As capitais s˜ao dadas em ordem crescente de identificador do reino, n˜ao h´a duas capitais com
+a mesma localiza¸c˜ao, e vocˆe pode assumir que toda capital tem tamanho insignificante.
+Sa´ıda
+Imprima uma ´unica linha com uma lista de inteiros separados por espa¸co em ordem crescente:
+os identificadores dos reinos que teriam territ´orios infinitos sob o Tratado de Divis˜ao descrito. E´
+garantido que sempre haver´a pelo menos um reino assim.
+Exemplo de entrada 1
+4
+3 2
+1 5
+3 6
+3 5
+Exemplo de sa´ıda 1
+1 2 3 4
+Exemplo de entrada 2
+6
+2 1
+3 3
+1 4
+4 5
+6 3
+4 3
+Exemplo de sa´ıda 2
+1 3 4 5
+Maratona de Programa¸c˜ao da SBC – ICPC – 2023 12

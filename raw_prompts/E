@@ -1,0 +1,49 @@
+Problema E
+Extraindo P´olen
+E chegada a primavera, dando in´ıcio a mais uma temporada de trabalho intenso na Sociedade das ´
+aBelhas de Chapec´o (SBC)! No jardim da SBC, N lindas flores floresceram, cada uma com uma certa
+quantidade de gr˜aos de p´olen, que ser˜ao coletados pelas ´arduas trabalhadoras da sociedade. Para
+manter o ambiente de trabalho seguro, a SBC tem regras muito estritas para a coleta do p´olen, sendo
+elas:
+1. Quando uma abelha visita uma flor, ela deve coletar uma quantidade de p´olen igual `a soma dos
+d´ıgitos do total de p´olen atualmente naquela flor. Por exemplo, se uma flor tem 123 gr˜aos de
+p´olen, a abelha que a visitar deve coletar 1 + 2 + 3 = 6 gr˜aos, deixando a flor com 123 − 6 = 117
+gr˜aos. Se a flor tem 201 gr˜aos, a abelha coletar´a 2 + 0 + 1 = 3 gr˜aos, deixando a flor com
+201 − 3 = 198 gr˜aos de p´olen.
+2. Todas as abelhas devem formar uma fila no in´ıcio do dia; aquela que estiver na primera posi¸c˜ao
+da mesma deve coletar p´olen de alguma flor com o maior total de p´olen. Se a abelha visitar
+um flor com 0 gr˜aos, ela coleta zero gr˜aos de p´olen. Ap´os coletar o p´olen de uma flor, a abelha
+encerra seu turno de trabalho e volta para a colmeia.
+A abelha Gertrude achou essas regras muito estranhas e procurou a sua ajuda para saber quanto
+p´olen ela ir´a coletar no seu turno. Gertrude tem uma vis˜ao incr´ıvel e descobriu que atualmente est´a
+na K-´esima posi¸c˜ao da fila.
+Entrada
+A primeira linha cont´em dois inteiros N (1 ≤ N ≤ 106
+) e K (1 ≤ K ≤ 109
+), que representam o
+n´umero de flores e a posi¸c˜ao de Gertrude na fila, respectivamente. A segunda linha cont´em N inteiros,
+onde o i-´esimo inteiro Fi (1 ≤ Fi ≤ 106 para 1 ≤ i ≤ N) denota a quantidade inicial de p´olen da
+i-´esima flor.
+Sa´ıda
+Imprima um ´unico inteiro Q, que representa a quantidade de p´olen que ser´a coletada por Gertrude.
+Exemplo de entrada 1
+5 3
+22 15 7 2 1
+Exemplo de sa´ıda 1
+6
+Explica¸c˜ao do exemplo 1 :
+A primeira abelha coletar´a o p´olen da primeira flor, deixando-a com 22 − (2 + 2) = 18 gr˜aos
+restantes. A segunda abelha tamb´em coletar´a da primeira flor, deixando-a com 18 − (1 + 8) = 9
+gr˜aos restante. Por fim, Gertrude, a terceira abelha da fila, ir´a coletar p´olen da segunda flor,
+coletando um total de 1 + 5 = 6 gr˜aos, que ser´a a resposta para este caso de teste.
+Exemplo de entrada 2
+3 10
+21 21 21
+Exemplo de sa´ıda 2
+0
+Maratona de Programa¸c˜ao da SBC – ICPC – 2023 8
+Exemplo de entrada 3
+3 9
+21 21 21
+Exemplo de sa´ıda 3
+9

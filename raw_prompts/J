@@ -1,0 +1,53 @@
+Problema J
+Jogo de Vˆolei
+Est´a tudo pronto para a grande final do super voleibol nos Jogos Ol´ımpicos, e a tens˜ao ´e tamanha
+que pode ser cortada com uma faca! Ricard˜ao, o treinador de um dos times finalistas, est´a cuidadosamente posicionando seus jogadores para ter uma vantagem estrat´egica. Por´em, ainda resta uma
+preocupa¸c˜ao crescente: a de que algumas regi˜oes da quadra n˜ao estejam cobertas por seus jogadores,
+o que necessitaria de pulos laterais muito longos e cansativos para que um jogador chegasse na bola
+antes que ela atingisse o ch˜ao.
+Vamos ajudar Ricard˜ao nessa partida decisiva! Dados uma quadra e o posicionamento dos jogadores, o treinador gostaria de saber qual o maior pulo que algum jogador deve fazer para interceptar
+um ataque advers´ario, garantindo assim que nenhum ponto da quadra fique vulner´avel. Times profissionais de super vˆolei s˜ao muito bons, podendo facilmente determinar qual ´e o jogador mais pr´oximo
+de onde a bola vai cair; apenas esse jogador tentar´a pular at´e l´a, enquanto todos os outros ficar˜ao
+im´oveis.
+A quadra ´e um retˆangulo R de lados paralelos aos eixos do plano e definido por seus quatro v´ertices;
+por outro lado, os jogadores s˜ao modelados como um conjunto de N pontos dentro de R. Sua tarefa
+´e determinar qual a menor distˆancia d tal que, para qualquer ponto da quadra, exista pelo menos um
+jogador a distˆancia no m´aximo d daquele ponto. Lembre-se: a borda da quadra tamb´em faz parte da
+quadra e deve ser coberta!
+Entrada
+As primeiras quatro linhas definem os quatro v´ertices de R; ou seja, a i-´esima dessas linhas possui
+dois inteiros xi e yi (−105 ≤ xi
+, yi ≤ 105
+), que representam as coordenadas do i-´esimo v´ertice de R.
+A quinta linha cont´em um ´unico inteiro N (1 ≤ N ≤ 105
+), que representa o n´umero de jogadores.
+As N linhas seguintes representam os jogadores, com a i-´esima linha tendo dois inteiros xi e yi
+(−105 ≤ xi
+, yi ≤ 105
+) que nos d˜ao as coordenadas do i-´esimo jogador. E garantido que todo jogador ´
+est´a dentro da quadra.
+Sa´ıda
+Imprima um ´unico n´umero d, que representa o pulo m´aximo que deve ser dado por algum jogador
+para que o time cubra toda a quadra. A sa´ıda ser´a considerada correta se estiver com erro absoluto
+ou relativo de no m´aximo 10−5 da resposta correta.
+Exemplo de entrada 1
+-1 -1
+1 -1
+1 1
+-1 1
+1
+0 0
+Exemplo de sa´ıda 1
+1.41421356237
+Maratona de Programa¸c˜ao da SBC – ICPC – 2023 16
+Exemplo de entrada 2
+1 -1
+-1 3
+1 3
+-1 -1
+3
+0 0
+1 3
+-1 3
+Exemplo de sa´ıda 2
+1.666666666667

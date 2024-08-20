@@ -1,0 +1,51 @@
+Problema C
+Caminhada na Montanha
+Finalmente acabaram as provas e ´e chegada a hora de dar uma pausa na trabalheira da faculdade para
+umas merecidas f´erias. Com suas malas arrumadas, vocˆe partiu em uma aventura para explorar uma
+bel´ıssima montanha da sua regi˜ao – um passeio que vocˆe tem sonhado fazer h´a anos e que finalmente
+se torna realidade.
+Al´em de bela, a majestosa montanha ´e gigantesca e oferece diversas trilhas a seus visitantes.
+Contando com N marcos, cada um unicamente identificado por um n´umero entre 1 e N a montanha
+possui N − 1 caminhos entre os marcos. Essas passagens garantem uma travessia tranquila de um
+marco a outro, de tal forma que toda a montanha est´a conectada.
+A cada marco i est´a associado um valor vi
+; esse n´umero reflete o n´umero de curtidas que uma foto
+tirada nele ter´a na sua rede social favorita. Quase explodindo de entusiasmo, vocˆe decidiu adicionar
+uma nova camada `a sua jornada por meio do “desafio do hype”, permitindo que seus seguidores
+vivenciem sua aventura na mesma ordem que vocˆe. Nesse desafio, seu objetivo ´e, no m´ınimo, incr´ıvel:
+tirar e postar fotos de tal maneira que cada nova foto postada ter´a mais curtidas que a anterior.
+As regras do desafio essencialmente ditam o desenrolar da sua jornada da seguinte maneira:
+1. Sua trilha come¸ca no marco de ´ındice 1.
+2. Seguindo apenas os caminhos j´a dispon´ıveis entre os marcos, vocˆe se move apenas em frente, n˜ao
+podendo passar por um marco mais de uma vez.
+3. A cada marco visitado, vocˆe pode tirar uma foto e imediatamente postar em sua rede social, ou
+n˜ao tirar nenhuma foto.
+Sendo uma pessoa muito s´abia, vocˆe j´a reparou que h´a muitas poss´ıveis rotas e resultados para o
+desafio. Especificamente, para cada marco i, vocˆe gostaria de determinar o maior n´umero de fotos que
+podem ser postadas se vocˆe iniciar sua jornada no marco 1 e encerrar no marco i (sem necessariamente
+tirar uma foto no marco i). Lembre-se, uma foto s´o pode ser postada se ela tiver mais curtidas que a
+foto anterior!
+Entrada
+A primeira linha da entrada cont´em um inteiro N (1 ≤ N ≤ 105
+), que representa o n´umero de
+marcos na montanha. A segunda linha cont´em N − 1 inteiros p2, p3, . . . , pN (1 ≤ pi ≤ N), onde pi
+indica que existe um caminho entre os marcos i e pi
+. A terceira linha cont´em N inteiros v1, v2, . . . , vN
+(1 ≤ vi ≤ 109
+), onde vi representa o n´umero de curtidas da foto do i-´esimo marco.
+Sa´ıda
+Imprima uma ´unica linha com N − 1 inteiros, onde o i-´esimo inteiro representa o maior n´umero
+de fotos que vocˆe pode postar se vocˆe iniciar sua caminhada no marco 1 e terminar no marco (i + 1).
+Exemplo de entrada 1
+5
+1 1 3 3
+5 7 7 6 8
+Exemplo de sa´ıda 1
+2 2 2 3
+Maratona de Programa¸c˜ao da SBC – ICPC – 2023 5
+Exemplo de entrada 2
+5
+3 1 3 1
+5 4 7 6 5
+Exemplo de sa´ıda 2
+2 2 2 1

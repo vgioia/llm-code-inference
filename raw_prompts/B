@@ -1,0 +1,56 @@
+Problema B
+Baralho Embaralhado
+Um embaralhamento justo ´e uma forma de rearranjar N cartas de um baralho disposto horizontalmente
+da esquerda para a direita. Nesse embaralhamento, as cartas s˜ao inicialmente dividas em duas partes
+cont´ıguas de tamanhos possivelmente diferentes em que uma delas pode ter at´e mesmo zero cartas!
+Denotemos por L e R as partes da esquerda e direita, respectivamente. As cartas de L s˜ao, ent˜ao,
+combinadas com as cartas de R, de tal forma que a ordem relativa entre as cartas de cada parti¸c˜ao
+seja mantida.
+Vocˆe ´e apresentado `a uma disposi¸c˜ao final das cartas e deve descobrir qual a quantidade m´ınima de
+embaralhamentos justos que devem ser realizados no baralho inicial para que ele chegue a este estado.
+Inicialmente, as cartas do baralho podem ser vistas como a sequencia 1 2 . . . N.
+Por exemplo, come¸cando com a sequˆencia 1 2 3 4 5 e realizando um embaralhamento justo com
+L = 1 2 e R = 3 4 5, podemos obter as seguintes permuta¸c˜oes:
+• 1 3 2 4 5
+• 1 3 4 2 5
+• 3 4 5 1 2
+• 1 2 3 4 5
+• etc
+Cada uma das permuta¸c˜oes acima representa um poss´ıvel resultado do embaralhamento justo. Note
+que 1 3 2 5 4 n˜ao ´e uma embaralhamento poss´ıvel pois as ordens relativas das cartas 4 e 5 de R n˜ao
+´e preservada.
+Assuma que o resultado do primeiro embaralhamento ´e 1 3 2 4 5. Se fizermos um segundo
+embaralhamento justo nele, podemos particionar o baralho em L = 1 3 2 4, R = 5, e combinar
+ambas para obter a permuta¸c˜ao 1 3 2 5 4.
+Entrada
+A primeira linha cont´em um inteiro N(1 ≤ N ≤ 106
+), o n´umero de cartas no baralho. A segunda
+linha cont´em uma permuta¸c˜ao de n´umeros inteiros de 1 a N descrevendo a disposi¸c˜ao final das cartas.
+Sa´ıda
+Imprima um ´unico inteiro K, que representa o menor n´umero de embaralhamentos justos necess´arios para obter a permuta¸c˜ao dada.
+Exemplo de entrada 1
+5
+3 4 5 1 2
+Exemplo de sa´ıda 1
+1
+Exemplo de entrada 2
+10
+1 6 5 2 10 3 4 8 7 9
+Exemplo de sa´ıda 2
+3
+Maratona de Programa¸c˜ao da SBC – ICPC – 2023 3
+Exemplo de entrada 3
+5
+5 4 2 3 1
+Exemplo de sa´ıda 3
+2
+Exemplo de entrada 4
+8
+1 6 2 3 7 8 4 5
+Exemplo de sa´ıda 4
+1
+Exemplo de entrada 5
+5
+1 2 3 4 5
+Exemplo de sa´ıda 5
+0

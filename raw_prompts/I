@@ -1,0 +1,32 @@
+Problema I
+Investigando Zeros e Uns
+Vocˆe se encontra em um misterioso mundo bin´ario, onde um vetor de N d´ıgitos bin´arios aguarda pelo
+seu exame minucioso. Cada d´ıgito ´e zero ou um, criando um padr˜ao ´unico em toda a paisagem. Sua
+miss˜ao ´e descobrir os padr˜oes ocultos deste reino bin´ario, desvendando o significado de subvetores com
+um n´umero ´ımpar de uns.
+O vetor de d´ıgitos ´e denotado como b1, b2, . . . , bN . Sua tarefa ´e embarcar em uma jornada para
+descobrir os subvetores enigm´aticos – segmentos de d´ıgitos consecutivos – e determinar a contagem de
+subvetores que abrigam um n´umero ´ımpar de uns.
+Ao percorrer essa paisagem bin´aria, lembre-se de que um subvetor ´e definido por seus d´ıgitos
+iniciais e finais. Por exemplo, na sequˆencia [b1, b2, b3], os subvetores incluem [b1], [b2], [b3], [b1, b2],
+[b2, b3], e [b1, b2, b3].
+Sua miss˜ao ´e projetar um algoritmo que determine o n´umero total de subvetores contendo um
+n´umero ´ımpar de uns nesta sequˆencia bin´aria. N˜ao se esque¸ca de que a resposta pode n˜ao caber em
+um n´umero inteiro de 32 bits.
+Entrada
+A primeira linha da entrada cont´em o inteiro N (1 ≤ N ≤ 105
+), representando o comprimento da
+sequˆencia bin´aria.
+A segunda linha cont´em os N d´ıgitos bin´arios b1, b2, . . . , bN (bi ∈ {0, 1}), representando os elementos da sequˆencia.
+Sa´ıda
+Seu programa deve imprimir uma linha contendo a quantidade de subvetores contendo uma quantidade ´ımpar de uns.
+Exemplo de entrada 1
+3
+0 1 0
+Exemplo de sa´ıda 1
+4
+Exemplo de entrada 2
+10
+1 0 0 1 1 0 1 1 1 0
+Exemplo de sa´ıda 2
+30

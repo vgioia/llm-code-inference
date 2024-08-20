@@ -1,0 +1,51 @@
+
+Problema K
+k pra Mais, k pra Menos
+A vida daquele que estuda ciˆencia da computa¸c˜ao nem sempre ´e t˜ao f´acil quanto parece. Alguns dias
+vocˆe pode estar implementando um algoritmo revolucion´ario, mas em outros vocˆe acaba relendo o
+mesmo livro pela d´ecima vez. Mas a todo momento estamos buscando a mesma coisa: otimizar e
+automatizar tarefas. Neste caso, um professor est´a precisando da sua ajuda para orientar seus alunos
+para a pr´oxima prova. Na opini˜ao do professor, n˜ao ´e f´acil decidir quanto tempo eles devem passar
+estudando t´opicos te´oricos e quanto tempo eles devem passar implementando algoritmos.
+Essa n˜ao ´e a primeira vez que o professor leciona essa mat´eria, ent˜ao a quantidade de dados
+dispon´ıveis ´e t˜ao grande que ele foi capaz de criar dois polinˆomios para descrever o desempenho final
+de cada aluno. Se o aluno gastar x unidades do seu tempo estudando teoria, sua nota aumentar´a em
+t(x). Se o aluno gastar x unidades do seu tempo implementando algoritmos, sua nota aumentar´a em
+p(x). De tal modo que o aluno que gastar a mesma quantidade x de tempo em cada uma das ´areas
+ter´a a nota total t(x) + p(x).
+Acontece que recentemente um dos estudantes vem se destacando de forma imprevis´ıvel. E ele
+n˜ao esconde sua t´ecnica de ningu´em: “eu estudo muito mais teoria do que pr´atica!”. O professor em
+quest˜ao acha que isso ´e uma grande mentira e, para confirmar sua suspeita, ele decidiu estimar as
+notas dos alunos se eles sempre estudassem mais teoria do que pr´atica (ou mais pr´atica do que teoria).
+Vocˆe pode computar o polinˆomio q(x) = t(x + K) + p(x − K)? Ele ser´a capaz de descrever a nota de
+todos os alunos se eles mudarem sua estrat´egia de estudo.
+Entrada
+A entrada consiste em trˆes linhas. Na primeira, est˜ao dois inteiros: N, representando o grau dos
+polinˆomios t e p (1 ≤ N ≤ 105
+) e K (−105 ≤ K ≤ 105
+). J´a a segunda linha cont´em os N + 1
+coeficientes de t e a terceira linha cont´em os N + 1 coeficientes de p. Os coeficientes s˜ao dados em
+ordem crescente de grau, com o ´ultimo coeficiente da linha correspondendo ao termo de grau N, sendo
+todos n˜ao negativos de valor no m´aximo 106
+.
+Sa´ıda
+Seu programa deve escrever N + 1 inteiros, os coeficientes do polinˆomio q(x) em ordem crescente
+de grau, m´odulo 998244353.
+Exemplo de entrada 1
+1 2
+1 2
+0 1
+Exemplo de sa´ıda 1
+3 3
+Exemplo de entrada 2
+2 0
+1 2 3
+4 5 6
+Exemplo de sa´ıda 2
+5 7 9
+Exemplo de entrada 3
+2 -1
+3 3 3
+1 0 0
+Exemplo de sa´ıda 3
+4 998244350 3

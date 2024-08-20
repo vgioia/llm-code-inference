@@ -1,0 +1,5 @@
+```
+N, K = map(int, input().split())
+polen = list(map(int, input().split()))
+print(sum(map(int, str(polen[K-1]))))
+```

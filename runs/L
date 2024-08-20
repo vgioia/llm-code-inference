@@ -1,0 +1,9 @@
+```
+K = int(input())
+S = input().strip()
+min_str = list(S)
+for _ in range(K):
+    for i in range(len(min_str) - K):
+        min_str[i], min_str[i+K] = min_str[i+K], min_str[i]
+print(' '.join(min_str))
+```

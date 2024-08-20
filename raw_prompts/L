@@ -1,0 +1,33 @@
+Problema L
+Lexicograficamente Agrad´avel
+Na pitoresca vila da Lexiconia, viviam dois amigos, Lily e Ethan. Um dia, uma misteriosa carta chegou
+na casa dos amigos, fechada com uma encantadora insignia. Dentro do envelope, eles encontraram
+uma charada complexa demais at´e mesmo para as mentes mais s´abias da vila.
+Nessa charada, foram dados um inteiro K e uma string S contendo apenas letras min´usculas, que
+pode ser alterada de acordo com uma curiosa regra. A cada momento, os alde˜oes tem a liberdade de
+escolher um ´ındice i e, magicamente, os caracteres Si e Si+K trocam de posi¸c˜ao. A charada ´e resolvida
+quando a string lexicograficamente m´ınima, usando apenas opera¸c˜oes que respeitem a regra imposta
+pela charada, for encontrada.
+A vila ficou muito curiosa e empolgada com a charada. Lily e Ethan, sempre vorazes por aventura,
+decidiram mergulhar de cabe¸ca nesse desafio. Por´em, `a medida que os dois observavam a string, eles
+notaram que, no caminho para o sucesso, haviam in´umeras trocas poss´ıves.
+Com a string da charada v´ıvida em suas mentes, os amigos se perguntaram: como navegar nesse gigantesco mar de possibilidades e determinar a string lexicograficamente m´ınima? Cada troca realizada
+parecia como folhear um livro m´agico, que revelaria novos segredos e mist´erios.
+O tempo passou e at´e agora Lily e Ethan n˜ao terminaram de resolver essa charada. Ser´a que vocˆe
+consegue ajud´a-los?
+Entrada
+A primeira linha da entrada cont´em a string S (1 ≤ |S| ≤ 105
+). A segunda linha da entrada cont´em
+o inteiro K (1 ≤ K < |S|).
+Sa´ıda
+Imprima uma ´unica linha contendo a string lexicograficamente m´ınima poss´ıvel de ser feita utilizando essas opera¸c˜oes.
+Exemplo de entrada 1
+zaaab
+4
+Exemplo de sa´ıda 1
+baaaz
+Exemplo de entrada 2
+njoab
+2
+Exemplo de sa´ıda 2
+banjo
