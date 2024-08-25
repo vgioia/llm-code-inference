@@ -1,57 +1,64 @@
 #!/bin/bash
 
-CODE_PATH="./runs"
-PYTHON_PATH="./temp"
+RUN_NAME="202408252105_llama3_8b"
+CODE_PATH="./runs/$RUN_NAME"
+PYTHON_PATH="./temp/$RUN_NAME"
 TEST_TASK_DIR="./tests"
 INPUT_PATH="input"
 OUTPUT_PATH="output"
 ACTUAL_OUTPUT_PATH="temp"
-LOG_PATH="./logs"
+LOG_PATH="./logs/$RUN_NAME"
 
 TIMEOUT_DURATION=8
 
-mkdir $PYTHON_PATH
+mkdir -p $PYTHON_PATH
 
 for task in $CODE_PATH/*; do
-    taskname=$(basename "$task") 
-    python_file=$PYTHON_PATH/$taskname
-    sed 's/```//g' $task > $python_file
+    taskname=$(basename "$task")
+    mkdir $PYTHON_PATH/$taskname
 
-    log_file=$LOG_PATH/$taskname
-    mkdir $TEST_TASK_DIR/$taskname/$ACTUAL_OUTPUT_PATH
+    for run in $task/*; do
+        runname=$(basename "$run")
+        
+        python_file="$PYTHON_PATH/$taskname/$runname.py"
+        sed 's/```//g' $run > $python_file
 
-    for file in $TEST_TASK_DIR/$taskname/$INPUT_PATH/*; do
-        # Extract the filename from the full path
-        filename=$(basename "$file")
+        mkdir -p $LOG_PATH/$taskname
+        log_file=$LOG_PATH/$taskname/$runname
 
-        actual_output=$TEST_TASK_DIR/$taskname/$ACTUAL_OUTPUT_PATH/$filename
-        expected_output=$TEST_TASK_DIR/$taskname/$OUTPUT_PATH/$filename
+        mkdir -p $TEST_TASK_DIR/$taskname/$runname/$ACTUAL_OUTPUT_PATH
 
-        # Remove the string from the file and save to the output directory
-        timeout $TIMEOUT_DURATION python3 $python_file < $file > $actual_output
+        for file in $TEST_TASK_DIR/$taskname/$INPUT_PATH/*; do
+            filename=$(basename "$file")
 
-        if [ $? -eq 124 ]; then
-            echo "Timed out when executing $filename"
-            echo "TIMEOUT" >> $log_file
-        else
-            # Compare the actual output with the expected output
-            if diff -q $actual_output $expected_output > /dev/null; then
-                echo "PASSED" >> $log_file
+            actual_output=$TEST_TASK_DIR/$taskname/$runname/$ACTUAL_OUTPUT_PATH/$filename
+            expected_output=$TEST_TASK_DIR/$taskname/$OUTPUT_PATH/$filename
+
+            timeout $TIMEOUT_DURATION python3 $python_file < $file > $actual_output
+
+            if [ $? -eq 124 ]; then
+                echo "Timed out when executing $filename"
+                echo "TIMEOUT" >> $log_file
             else
-                echo "FAILED" >> $log_file
-                echo "Expected Output:"
-                cat $expected_output
-                echo "Actual Output:"
-                cat $actual_output
+                # Compare the actual output with the expected output
+                if diff -q $actual_output $expected_output > /dev/null; then
+                    echo "PASSED" >> $log_file
+                else
+                    echo "FAILED" >> $log_file
+                    echo "Expected Output:"
+                    cat $expected_output
+                    echo "Actual Output:"
+                    cat $actual_output
+                fi
             fi
-        fi
 
-        echo "Processed $filename"
-        rm $actual_output
+            echo "Processed $filename"
+            rm $actual_output
+        done
+
+        rm $python_file
+        rm -r $TEST_TASK_DIR/$taskname/$runname
     done
-
-    rm $python_file
-    rmdir $TEST_TASK_DIR/$taskname/$ACTUAL_OUTPUT_PATH
 done
 
-rmdir $PYTHON_PATH
+rm -r $PYTHON_PATH

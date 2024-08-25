@@ -1,5 +1,5 @@
 ```
 N, H = map(int, input().split())
 A = list(map(int, input().split()))
-print(len([i for i in A if i <= H]))
+print(len([a for a in A if a <= H]))
 ```
