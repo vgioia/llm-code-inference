@@ -1,0 +1,8 @@
+```python
+n, h = map(int, input().split())
+alturas = list(map(int, input().split()))
+
+contagem = sum(1 for altura in alturas if altura <= h)
+
+print(contagem)
+```

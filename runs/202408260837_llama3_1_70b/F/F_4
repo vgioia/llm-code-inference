@@ -1,0 +1,22 @@
+```python
+D, C, R = map(int, input().split())
+cansativas = [int(input()) for _ in range(C)]
+revigorantes = [int(input()) for _ in range(R)]
+
+atividades_realizadas = 0
+disposicao_atual = D
+
+i = j = 0
+while i < C or j < R:
+    if i < C and disposicao_atual >= cansativas[i]:
+        disposicao_atual -= cansativas[i]
+        i += 1
+    elif j < R:
+        disposicao_atual += revigorantes[j]
+        j += 1
+    else:
+        break
+    atividades_realizadas += 1
+
+print(atividades_realizadas)
+```

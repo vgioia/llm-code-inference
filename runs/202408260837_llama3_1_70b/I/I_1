@@ -1,0 +1,15 @@
+```python
+n = int(input())
+b = list(map(int, input().split()))
+
+soma = 0
+contagem = 0
+for i in range(n):
+    contagem += b[i]
+    if contagem % 2 != 0:
+        soma += i + 1
+    else:
+        soma += n - i
+
+print(soma)
+```

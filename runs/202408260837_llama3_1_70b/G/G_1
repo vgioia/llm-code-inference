@@ -1,0 +1,32 @@
+```python
+import sys
+
+def trata_input():
+    n = int(input())
+    reinos = []
+    for i in range(n):
+        x, y = map(int, input().split())
+        reinos.append((x, y))
+    return n, reinos
+
+def trata_saida(infinitos):
+    infinitos.sort()
+    saida = ' '.join(map(str, infinitos))
+    print(saida)
+
+def eh_fronteira(reino, reinos):
+    x, y = reino
+    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+        vizinho = (x + dx, y + dy)
+        if vizinho not in reinos:
+            return True
+    return False
+
+def main():
+    n, reinos = trata_input()
+    infinitos = [i + 1 for i, reino in enumerate(reinos) if eh_fronteira(reino, reinos)]
+    trata_saida(infinitos)
+
+if __name__ == '__main__':
+    main()
+```

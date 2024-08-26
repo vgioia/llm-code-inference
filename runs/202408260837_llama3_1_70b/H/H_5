@@ -1,0 +1,49 @@
+```python
+import heapq
+
+def dinamico(job, i):
+    if i >= len(job):
+        return 0
+    else:
+        pay, end, _ = job[i]
+        start2 = end
+        j = i + 1
+        while j < len(job) and job[j][0] <= start2:
+            j += 1
+
+        return max(
+            pay + dinamico(job, start2),
+            dinamico(job, i + 1)
+        )
+
+def main():
+    n, S = map(int, input().split())
+    v = [None] * n
+    for i in range(n):
+        l, r, cost = map(int, input().split())
+        v[i] = (l, r, S * (r - l + 1) - cost)
+
+    v.sort(key=lambda x: x[0])
+
+    heap = []
+    lucro = [0] * n
+    for i in range(n):
+        _, end, pay = v[i]
+        while heap and heap[0][0] <= v[i][0]:
+            _, _, pay2 = heapq.heappop(heap)
+            lucro.append(pay2)
+
+        if not lucro:
+            lucro.append(0)
+        lucro.append(max(lucro[-1], lucro.pop() + pay if pay > 0 else 0))
+        heapq.heappush(heap, (end, end, pay))
+
+    while heap:
+        _, _, pay = heapq.heappop(heap)
+        lucro.append(max(lucro[-1], lucro.pop() + pay if pay > 0 else 0))
+
+    print(lucro[-1])
+
+if __name__ == "__main__":
+    main()
+```

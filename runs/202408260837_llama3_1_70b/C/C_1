@@ -1,0 +1,19 @@
+```python
+from sys import stdin
+input = stdin.readline
+
+def solve():
+    N = int(input())
+    parent = list(map(int, input().split()))
+    likes = list(map(int, input().split()))
+    dp = [0]*N
+    for i in range(N):
+        for j in range(i+1, N):
+            if likes[j] > likes[i]:
+                dp[j] = max(dp[j], dp[i] + 1)
+    ans = [max(dp[j] for j in range(N) if parent[j-1] == i) for i in range(1, N)]
+    print(*ans, sep=' ')
+
+if __name__ == "__main__":
+    solve()
+```

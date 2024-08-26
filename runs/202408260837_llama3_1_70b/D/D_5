@@ -1,0 +1,44 @@
+```python
+import sys
+from typing import List, Tuple
+
+def FloydWarshall(dist: List[List[int]], n: int) -> None:
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+
+def main() -> None:
+    input_lines = sys.stdin.readlines()
+    n, m = map(int, input_lines[0].split())
+    arestas = [list(map(int, input_lines[i].split())) for i in range(1, m + 1)]
+
+    INF = 10 ** 9
+    dist = [[INF] * n for _ in range(n)]
+    for i in range(n):
+        dist[i][i] = 0
+
+    for u, v, l in arestas:
+        u -= 1
+        v -= 1
+        dist[u][v] = l
+        dist[v][u] = l
+
+    FloydWarshall(dist, n)
+
+    respostas = []
+    for i in range(m):
+        u, v, _ = arestas[i]
+        u -= 1
+        v -= 1
+        dist_temp = [linha[:] for linha in dist]
+        dist_temp[u][v] = INF
+        dist_temp[v][u] = INF
+        FloydWarshall(dist_temp, n)
+        respostas.append(dist_temp[v][u] if dist_temp[v][u] < INF else -1)
+
+    print('\n'.join(map(str, respostas)))
+
+if __name__ == "__main__":
+    main()
+```

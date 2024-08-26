@@ -1,0 +1,42 @@
+```python
+def sol():
+    N = int(input())
+    perm = list(map(int, input().split()))
+
+    ini = [i + 1 for i in range(N)]
+
+    cnt = 0
+    while True:
+        if perm == ini:
+            print(cnt)
+            break
+
+        L = []
+        R = []
+
+        max_R = -1
+        for i in range(N - 1, -1, -1):
+            if perm[i] > max_R:
+                R.append(perm[i])
+                max_R = perm[i]
+            else:
+                L.append(perm[i])
+
+        L = L[::-1]
+        R = R[::-1]
+
+        new_perm = []
+        i = j = 0
+        while i < len(L) or j < len(R):
+            if i < len(L) and L[i] < R[j]:
+                new_perm.append(L[i])
+                i += 1
+            else:
+                new_perm.append(R[j])
+                j += 1
+
+        perm = new_perm
+        cnt += 1
+
+sol()
+```

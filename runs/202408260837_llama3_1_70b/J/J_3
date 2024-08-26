@@ -1,0 +1,33 @@
+```python
+import math
+
+def dist(x1, y1, x2, y2):
+    return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+
+def dist_ponto_reta(x, y, x1, y1, x2, y2):
+    return abs((x - x1) * (y2 - y1) - (y - y1) * (x2 - x1)) / math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+
+def dist_ponto_retangulo(x, y, x1, y1, x2, y2, x3, y3, x4, y4):
+    return min(dist_ponto_reta(x, y, x1, y1, x2, y2), dist_ponto_reta(x, y, x2, y2, x3, y3),
+               dist_ponto_reta(x, y, x3, y3, x4, y4), dist_ponto_reta(x, y, x4, y4, x1, y1))
+
+def menor_distancia(x1, y1, x2, y2, x3, y3, x4, y4, jogadores):
+    result = float('inf')
+    for x in range(x1, x2 + 1):
+        for y in range(y1, y2 + 1):
+            distancia = dist_ponto_retangulo(x, y, x1, y1, x2, y2, x3, y3, x4, y4)
+            for jogador in jogadores:
+                distancia = min(distancia, dist(x, y, jogador[0], jogador[1]))
+            result = min(result, distancia)
+    return result
+
+x1, y1 = map(int, input().split())
+x2, y2 = map(int, input().split())
+x3, y3 = map(int, input().split())
+x4, y4 = map(int, input().split())
+
+n = int(input())
+jogadores = [list(map(int, input().split())) for _ in range(n)]
+
+print(menor_distancia(min(x1, x2, x3, x4), min(y1, y2, y3, y4), max(x1, x2, x3, x4), max(y1, y2, y3, y4), x1, y1, x2, y2, jogadores))
+```

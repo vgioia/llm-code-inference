@@ -1,0 +1,70 @@
+```python
+import sys
+import math
+
+def distancia(p1, p2):
+    return math.sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2)
+
+def dist_minimo(p0, vs):
+    dmin = float('inf')
+    for v in vs:
+        d = distancia(p0, v)
+        if d < dmin:
+            dmin = d
+    return dmin
+
+def dentro_vs(x, vs, vt):
+    for v in vs:
+        if x == v:
+            return True
+    for v in vt:
+        if x == v:
+            return True
+    return False
+
+def main():
+    vs = [None] * 4
+    vt = []
+    vs[0] = tuple(map(int, sys.stdin.readline().strip().split()))
+    vs[1] = tuple(map(int, sys.stdin.readline().strip().split()))
+    vs[2] = tuple(map(int, sys.stdin.readline().strip().split()))
+    vs[3] = tuple(map(int, sys.stdin.readline().strip().split()))
+    n = int(sys.stdin.readline().strip())
+    for _ in range(n):
+        vt.append(tuple(map(int, sys.stdin.readline().strip().split())))
+
+    xmin, xmax = min(vs[0][0], vs[1][0], vs[2][0], vs[3][0]), max(vs[0][0], vs[1][0], vs[2][0], vs[3][0])
+    ymin, ymax = min(vs[0][1], vs[1][1], vs[2][1], vs[3][1]), max(vs[0][1], vs[1][1], vs[2][1], vs[3][1])
+
+    dc = 0.001
+    din, dsup = 0, max(xmax - xmin, ymax - ymin)
+    while dsup - din > dc:
+        d = (dsup + din) / 2
+        p0 = (xmin, ymin)
+        p1 = (xmax, ymin)
+        p2 = (xmin + d, ymin)
+        p3 = (xmax, ymin + d)
+        p4 = (xmin + d, ymax - d)
+        p5 = (xmax - d, ymax)
+        p6 = (xmin, ymax - d)
+        p7 = (xmin + d, ymin + d)
+        p8 = (xmax - d, ymax - d)
+
+        if (dentro_vs(p0, vs, vt) or dist_minimo(p0, vt) <= d) and \
+           (dentro_vs(p1, vs, vt) or dist_minimo(p1, vt) <= d) and \
+           (dentro_vs(p2, vs, vt) or dist_minimo(p2, vt) <= d) and \
+           (dentro_vs(p3, vs, vt) or dist_minimo(p3, vt) <= d) and \
+           (dentro_vs(p4, vs, vt) or dist_minimo(p4, vt) <= d) and \
+           (dentro_vs(p5, vs, vt) or dist_minimo(p5, vt) <= d) and \
+           (dentro_vs(p6, vs, vt) or dist_minimo(p6, vt) <= d) and \
+           (dentro_vs(p7, vs, vt) or dist_minimo(p7, vt) <= d) and \
+           (dentro_vs(p8, vs, vt) or dist_minimo(p8, vt) <= d):
+            dsup = d
+        else:
+            din = d
+
+    print(dsup)
+
+if __name__ == "__main__":
+    main()
+```

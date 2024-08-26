@@ -1,0 +1,11 @@
+```python
+N, H = map(int, input().split())
+brinquedos = list(map(int, input().split()))
+
+count = 0
+for altura in brinquedos:
+    if H >= altura:
+        count += 1
+
+print(count)
+```

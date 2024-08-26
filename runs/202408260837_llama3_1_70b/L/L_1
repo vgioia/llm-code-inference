@@ -1,0 +1,22 @@
+```python
+s = input()
+k = int(input())
+
+t = list(s)
+t.sort()
+
+n = len(s)
+grupos = [[] for _ in range(k)]
+
+for i in range(n):
+    grupos[i % k].append(t[i])
+
+for grupo in grupos:
+    grupo.sort(reverse=True)
+
+resposta = [''] * n
+for i in range(n):
+    resposta[i] = grupos[i % k].pop()
+
+print(''.join(resposta))
+```

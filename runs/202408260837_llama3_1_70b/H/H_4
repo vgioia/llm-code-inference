@@ -1,0 +1,22 @@
+```python
+import sys
+
+def solve():
+    N, S = map(int, input().split())
+    jobs = []
+    for _ in range(N):
+        li, ri, ci = map(int, input().split())
+        jobs.append((li, ri, ci))
+    jobs.sort(key=lambda x: x[1])
+
+    dp = [0] * 100000005
+    for li, ri, ci in jobs:
+        dp[ri] = max(dp[ri], dp[li] + (ri-li+1)*S - ci)
+        for i in range(li+1, ri+1):
+            dp[i] = max(dp[i], dp[li] + (i-li)*S - ci)
+
+    print(max(dp))
+
+if __name__ == "__main__":
+    solve()
+```

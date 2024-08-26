@@ -1,0 +1,13 @@
+```python
+n, k = map(int, input().split())
+flores = list(map(int, input().split()))
+
+for _ in range(k-1):
+    max_idx = flores.index(max(flores))
+    pollen_somado = sum(int(digit) for digit in str(flores[max_idx]))
+    flores[max_idx] -= pollen_somado
+
+gertrude_idx = flores.index(max(flores))
+pollen_coletado = sum(int(digit) for digit in str(flores[gertrude_idx]))
+print(pollen_coletado)
+```

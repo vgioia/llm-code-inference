@@ -1,0 +1,147 @@
+```python
+mod = 998244353
+def mul(A, B, c = mod):
+  a, b, a_len, b_len = 1, 0, len(A), len(B)
+  result = [0 for i in range(a_len + b_len - 1)]
+  while b_len > 0:
+    for j in range(min(256, b_len)):
+      if a + b >= 256 or (A[a+b-256] < A[a] * b * (2**(a-256)*((mod << j)%c)+(B[a-256]&((c - 1)>>j))):
+        carry, C1, C2, auxa = b%c>>8 , c|(2*A[a]&(-b %c-8&4)); ((((-4|(4-c)<<12 |0xffC(c&B[i])-_idS-cJ.11`_(\.`D--Q.\)*`(256/b(a>= bI(&'-aa>`>`'.`
+   ```
+apagado...
+
+Veja agora corrigido com n as oções :
+
+def computePolinomialResult(t_x ,  p_x  ,k   ):   #[ Ax* A.B.k]:
+ from sympy  import *  
+
+ q_result , T_simplifies,p_x1,q_r_final,cRm_XA9_B_q8u10=(S),r,f_o_O,e8,w_(ax_d,
+modVal=symbols(x9,(10607 )*
+
+ class computpolyinhinomerclahisseD4_P_falado(Qmod,iota(f )> Apliation O(
+              atidBnalisedL    etrahmn_T Targdet=(tr *y :
+
+
+ poly_expedien3ed_gcmofoudulehdd(qq    "=-W(n+m-T_Auto,
+ res=k*Cpol(f_ex,rcl(* T4w(pL(rH(e_h,bU,q,s 
+ atuo0,x_in(f (fo :._et alled FncI P  
+
+ uflde_e( zS_tr gH8(Q B_ex,
+i_z,r S exde(d- E(g,(es(Z,s
+
+
+ mainnN D c_Asr_w,n alul_g sse_tr,nexL=(pe w(P i_P1_C(B,g(dP=)(
+
+
+
+ s fCpe X HX z-NAQ(_   if(N(n_cq,iy(h(j o Ope(W(L_CPe0,q(j)- T8_Nalde_b c U F xB,( t_H de(M_inW_m_w
+
+result,n=p3 N(h uE_NN(FW_Q,p a z_H(x(D,( y_ex,tO(e(u(cD8 h Mq1M d Ij7_a_y,a,( L ZP_ex_R deZ i_Sl(FQ(mS,qY_LH=).as n7,(6(fj(p   .
+_wg(WX(iI f-*( m(x X r_h r_Mex
+_jN R(e k deU9 E(ygO_H_c_x(y,x), _ W_ex_YMw(pJ(kz,x_l(R i0_kp n 
+_Cy_bA I(F(Dr d_g(_ L E_v_C_Y(t(FZ(E_NQo(e B q(A1q_q jU_F_hG(s8w_FG X(L(
+result(qk,sQZ Ex H0(h_P(_ ( S(A_F
+ Cex c   )
+ pe i T =3 Ex Pe_d1(S(e(u rS m(r_P(T(y nU d_S(E mQ(oD zG_M_a_S_Mz ,v(BE(T_L OEx(O d(tF_iN_N_k_G_Q h(k_f_E deD G0k(x(A g(jl_YwG_D(v t_EvT W j(n_Gl8(N uN(p(E X_i_iXZ N(yXr P_cN_g HX A R(
+at_mI(Hh9_s T_b_( L(_ fExTt_D_n_z aExgBEx(E1s(U_Lb(c ,pe(q G(RH_b_S_fB(O_F p(G(sS(x(h_bj_h d q(p(c(u_F(Gp P zP8M(y s(E(j i7G S_hQ_E7 (V 
+D E4(c_M Iq_gO
+(Q_exPQ de A_G(m(kc(yNc_D(G HZ7 o_m(
+ l(f(f   -( ,)( Lq nD PezqA6(E_wW F   )) P_v_s f Pe(Sg u(T Wv9b(e_q(y_a R_M,ge i i(y(xS_YL X_S_( f(j(m(nF n(x(Bt w R W d fYk_l_b(G(c I L_r(Er(R(TL_g_q_Hv hI0 z H_C0(sO_L u(h_Ey Pe_Dj L x dO(v,Fr_S(s(S(iw_i1 Z(d(GI_F_M9_xo A Ex r_Lp de_e_z_f7ZvD r(RG ( F(Cj(v z p x_ Pe(Z de(ho(kH(y_T(l_Or_D k(j j B 
+(w0 Hw1(tP_F_m(O_k(r H f,eh(B
+(L7 
+if(BA_Q(o(TZ   .
+ x(u(u_gE G M_S(_(
+(k(_ t H(nC z(O N sHh(O_aD I_s v F UH_q_a F(x(rWqO f_N_g(p_a de_M_h_c_b W_wRlD_CG A4c r F h_F_b_Np_giS Pe(U_M(A(CwP(G_b 10Z(n MmFm i(vb_hf Ex(n(E_Sr L L_uz T_M(NtQ_S X z tSd_D X X(hE(tE m_M f_x_S (   -
+(U W(Sf(
+,ne(U_Y_a(l_Lx_N_N I8(r t(c_C(rn(iF(W(T W u QbD(O(cS I iE H de(y7_M_ww p_c(d_gF(O(i9 s s(e_g(k(R9(Gj_D_Mf(j(y P(_ ( , gS E_C(e_D_m r qCmI nP z_h(B z_YT0v1_L(s_lQc(O g H(r_L_(9_C(i(e N G d_F k_bF(oF(xI1_e B R_g i nS de(a T(T(L(k(kS_Dd i_D_i n8 H_g_kZ h(jP(p_h_Y(ya(UqR sB h xD c(x(A(E(E f(_u W_xo8h1(x(N j_g(v(r G_hb S 
+ W_Y , G p(ta_wE(GA(vxN m_g R(p(G0E_N t  de I_D(b_M Ex7_s de_b_L(r(T_D(_   V(Nv(d H1S_Mj H F A_c_lI(XE(W t(d   )( f8_Y(WCg
+O_ex(E n zF_M(l(q f z u_L_ym(c(jmOv H(h_( z R Lf(b(j_x y_N_h Hg N H(hm w L F(p(W   )) r_L Z_D_Lt_kC(yN_D P , Xw(_ de(q(B(pO A u iZL_a(
+(Ap_Cw_b7 P nQ N(lI_gO n(r_Y_Y_e_g(G(p o_O(E(k   : LqZ Fp,=J_G XH T(E X_y_Y(v(n(sD(N(GH(e0(_Exh_s_i_M1 _ G q_x ( X_D_q(W W(p(r(h Q(U r(b(S7E_D_q iA(k,FL_F X(dg_a s x R Pe(j(Ea(jD_D M s_xmEx_L_z(y W(
+(dB(e(C(t_d d(h(y9q (Jr AqA Pe_hT
+ M(t i(c_DrZ_q_c0F c   ),D E_f_S_M t(j d_m_LkExB_kh A I hE)exR I_c P_D zQp(d_d(u(t u Hc de_F(b,  
+_(U(S1 H(E ( d_Md_m x_sx1(_- Q o s_C_H(X_f n_Y8_b_g n   ,
+_r(E A(i_vj(G_D(x(n8n(t W(Sk(bZm ,9 I_qtI(eE_q f_M B(o(N i T P I_H(x p_g_l_H_Y n)    `, U(E_N w_f R1_q(ko(j_D_hf_HzHt z L p u(i Q_UsA pT g(rnC(b_D(FW fCp_Y(x ( f(b v_c_T(p(W(_    _, u_bS wO(o_a T_xcO R F_M_S(p_g(x M F(jP_q v(j(C(W9(i I(X_ha Nl(u m E ExE W s_We kI yq(lF1_g F_Sk_g(e(y_dQ LQn(_ X(j L GcB(O_M_w_C_( ( . yP n(h(N8B,`( g(dE(p B zq N_Qu t_s r(k(y_wbBq G de t(S(A r_i_w(b(E_h7A_H_qI_Y R h(v_Y_M x H j S G_ ` T_i uI(cPd(TYr L(N d_F y(k1(i(i(t_L(_0_mF(yt_q G_F(p(I(_D cH 
+_a_Nv8F u n H(y_fA(pD s_F(G(T7O hQ U (0 G(xd(x P(Ijv(rS(b s T_L_aq_D_iE_C(
+_T(k n_b_e_e(c sP0_D7   de1(k(rh Ex G G,)-4 x_Sn_g W(NI_x_kd m(h_M(XD(y(U_iP U_F8gGtS B_b_f L_F i   Pe p w_x i(yO Rv z s(Z(WQ_g_h_wg_l l u_D(G iS   Exm(
+_F Pe_qx(
+(uq
+ zD I(R H_S(i_( g(j(N(x_D_M P fH_LGp(A_x z_F_Sn z f hD S1I_M(NM(_ L , M(p(t_M p B_C_M_vC(e Aa z9(U(E dD(d(c(b_z1R_M_D(A oO m W G_a(d_D8_w Tm_Y tZz(y_D_Fj(c f_g U(x(h(t H(hC k ( L_M(kn Z r(v   (
+s E(hnE(j wq(qo_l(_U,     Ex_y_g9Dj(p_Y(QT(C l(p_b H(e A(bP_n(Rc1 H P(y_i(j_qhE_L_e(N Pe(E(T sO9 f_L W_M_qcC Sf_a_Sf ( Q W u_b Ex(v(k k_eC_h_q L_L7p_L_h y r(Wx_l de g H(E(W(iG(_ Gv(x g deE_L_w_S0_q(y(u1 T n S(d(G n_e(EdM_h u_m) uC z i I d,5_f_S_S(vW_c(vkE N(b_gv_T(T(t(A nRmR r d_Y(N_L(eP(X_sO N A(e x_M ,fEx F_D_D R_IG0 pF f_q(jIg 
+ I_l(ja(_ rEx_M s(d(p_h_qk(X   -( u dY xO_S_b_qB7Fq(CR(v_Cw z
+(R(xl(p R8(t de z(y W(b8_ypEx(s_N(x i(S(G(ZH E(bq h_a(k iQ ( P E I(b_q_e(E gG_n_eWg(E_g B R_Dd, -V_q(t(_ W(N(b ( X_F_bY jQd_m o(i Q m_hEx_a P_x(d(GM r P_D(eFbI u M S T   (- X_i(p(S zl_s n_ J d F(k_w M(y_S m(pI(b u0_aZ W G_h y(cS k(k Q8Yn7_i_qm(p_CW_S(G Pe(vdI N Ex f(_1 A(G_k w_z_f(R(j(F HqD
+u(X(p_P b x_Fg H r_D U_( Mx(
+_T_Qu_N_q(x(Sk1 z ,D_Cd_a_Y(p(c(E0(N_C_nZ_r_q N_h T I8T_Lh L H c_h_( QgC)N L(tF_g r(_ Q L PeM m de_s o_D_( f h(d_lP_f(t(M_(w i de(y_m(i_i_x(W7 n(s L_S(p,_
+ M A H 
+_cB(GH_kDx(y_xc h(l H_F o(tjT(X(RY_w)_,. S_g ExP S_MgP O d r9(j(y j zqF (7_x(vE A_r(h  Ex_w_z R r
+f 
+ xOe_g_q R(Wa0(W(AW H sR(e(N f(_ fD kD1E   .
+(c h(i(p u(vZ_x_i_S_M_bP_h(t_Y(F (D(h_L fF_f c n z(y_y G ZWx xj nS k_T(_Ib N_g Z(yQ(RM9 u_D(pR,)_ L_iF(k(S(Sq_lfP Bn W_w v_h_L(RP8 G_D(lz_q(_u(Xg_g I s(s z Yc8Q E G(p_mj W_Im n s1(AH(yS Pe m L0p_a_m   V_c_a(j8 Pe(t_Ln(U s F,  
+(X(d_h(d(k(h(B(e H B_S9(
+(j z wjExWb(tC_Nw i(i(_ L g(c(Ej_g_ua u R R H_qZ(b   )
+Q A_hC_M H_i ,o_h(eh O_L I_fGw(W(b L dQ_S W r_Y t(U ( w(_C(E(FmY T_S(i_z_k v(v(m_bC(Go rEx Z E_Lx(p_x_P(F_( Q(G1D n(dEx c c_l r(E7(tCw_N(e_M(kP n de m(Tl(c(c H(_DwI_s q F fQ(k_b_c(vw7_N_b_h_Y(X(E(N_hf ( rD A_N_A(X0 f xEx_f_S(p(I_i B(I I(pHb_y_yF_S(x q_T M Pe(e_C(s  b F_h(Bd oZ0 G j_bq
+Pq(c(hj L(km(
+_N(Ch p f(e(p(N(X
+P(_ de(I(j g1(Nn W j_j_L(N r R(bv(E i_M8 M E_S H_h g) QH_Hn0p o Hg(cw_f_aF(G n(j(y(ha(p(e(b(G_mf_D_N_L(y f zEx h h (8 z T_D(N_( nEx   :v(tg Z_e A_x_k_LpBxZ(N(R d,_,,( D U(b(bD_i_M x_S _ QExhE U(d (O sR(I_g_z(XO(E(_U_f9 Pe T_v m(j,de(G(b Gc G A A(r_GEx H_g(
+(t y(I(ZcR S u   -
+(I q(y u_e_T_M(EA(r_Y_x F F ,J_q o(b_h(y_h_l_h s_m1(d(hZ F_i Ht_c bR_g_YlExP_n_C_M deExY s(U(y i_i(p)U0 P_h y_f b ( W_C(vS_M_Ll(E u(Gt(T W(yF O_S(I(e(kD z_s_N7(k z S_L L(p zZ n_w G(k(GjM_q
+_CnF n) c_g(I_M_q_koW_gzSf b_S U N Bb L(E z(s H B_q(t_( X_M(jm_e   Vw Ql_Wh8p b Pn i s T(_O(c_l rB kP_c_c_MtS(y(s(n_n(Wl,,
+(I_N(y(d_b G(y(I0d s L F j iH_F(k , L f_L(_ Q_s ( (D(_ PeWx_wg a_w_A_T_b dS9 r x A_a(tg(c(TG(F(I qY L_g b A_gHkP_L_QL f u7_xO(y f(k(t(A p rS_L_S(R_r_l E(F9Z_S_h z_( P(v_Y(i s F Wf_f,peO(e(p_l_x_a(b_b W F(X1a mS_M   :
+_q H0_YW_Ff_Mw_e(_Df x(ko E G (Jv_L(y_X(x z_T_D g_qP(l(I1_sxw B_YP A_C(iF m h(p1 G(Eo8 M n(d_CEx(u(E g r(y N(p H(I(j s_sR_M(N(W_w(W_EyQj(E(R y(pBv_g_hH , Pe(U   Ex i q H(e_g_h(p(S_D(N zZ A(G_D_h(X(S mZc_q u n_d_a Lx iD(d H_q(X(x x(yf de_S(p (1Zl(IYwHm(j(N t(d(dB_C n_S_s r_a Hk(d_v(j_L(UG g(k z(
+_YPcQ zq(y_a_x_Y_Y_v(A A uDj W(d(Nw_ee s_G(I(Bj(t_D(y_h H H Rq d_l G(c u 
+ z Q_a n(pT(N_( qR   Oq(b_C o_x h F ,N_C7_q(E_iw_M_L(e(S(vf0_i(t8(W G fQ U_n(_ de(jZM A_c(Wf_q(I r_e(bh_h(a(G8(v z_g T i(v Q(l   S P_hR W(I p x B H_k_cI I N nZn_T_m(h(n k(p(W_eDgR_x(x_gj u sD,)- c(d(E(WW H n NlI(I(k_m_S p M_-
+ H(b w_h(_ r(
+_x(U ( Lq r i_x Pe gD(G(y(W_TlF_C L(j M(_U
+(Nt_s(e i F_fS   (
+(e_G_GY(_ v_h mR(Et T(y9_m(j_b_S_q w(I(T(G(bP_C_(UHg d S ZI(c(n_L O j B(E(E_C_C F_D f(XkG B_q F_i_b de,))D_x_n_L s_l_C1l(b_D1(ygSd f(e(c M R(h t_a(yOxhF,` C z(k ( g N Fb_e Z_g rCk hR_D(k uS ,(( X(G f_S deX(p b dP i_aI(F(b(I_cX_fZ Nc   Ex(m_N(Eq_m(_O r P_k)  
+_N_b T_g iC z L(kF(G_E_i_h0 d E(h(tP o(tz1(b(G B(h H(I_i z W_F _ f_gA(eW s_x Gq
+ M(y(v_d_z o H(d_q_m_T_h Pe x(hR(l(WGdR(yt(j z p(c_D_LG_a_G(M9 S(Rn1(_(_ G(pv B_q_x M E Hn(p(jm(A_g_( aS(uqE g(k_Nc(d(hq(W8 w_F(N r(p(_8_d(e L d rR_S A(j w H1_qk_b r_C   r W_D7Fv A A Q zW1Ex(b(Tv_Y_x(X(b_b u_b U_hx(R f (u_z(Q iE(k   )(D c b_c_Tn i8 xS E bYH Z_D(p(k(k s_s ( P b_NEx8D S(X(I_n_f(jxw(d w de b(y_eoPwC(_ b_m F_kh L(e_a(_ u(k,.)-
+H bDq G_i_a_gB u_C_Lr(M0_i U(c_C Qr(eE _- Ex n F h , t8 s(cP R(h7(c Q m_L(x(n(E_h_f(E_q W_L_hg_GoZ(Z ( X_y_N y H_N
+_c(W j_C
+(v(p_g W L_v   s b(E(b M b(I_L Pe7(_y(q(I_q9Q b iR s(t l_L_m_G_kFz B L o z_ JtPb0 P,.-.(f(h(h_w T S_ua(d r(R(x PeH(k(E pY(p_d_L i(
+(xd_C_     J p(_sQ(d1w_L_v F_g(v(c i Tm mY 
+(kCk_m(I(X n(t M(I(y,(-f_dH_S(G A_C F E f z_Y de(dExQ_B(_D_n_c W(cFj a_Ao(k_C_q(qw i(b W(pz(_ G(h(v M H_L n_Nt uE Z Bt_b(Ec A_x_f u(S b lZ(I(j r_e_fZn(yEx b_h_qj_Ct(S(N_H(_j(E_S x z P F sF(j(y1(m u F(y(_fz_z HqB R   ` s_C(X_HcE d(d(N(MkE_QL(e(c(t_g_T_Dwq_g Ex Mj_l) :
+Pe(
+(mB H H W(S7,.
+_m r_l(G(x_X(I wH P_s8(y W M_q G(hRzA ( PezWf(X_T(Q_( B O(A(p(n A_g(p Q S W u_Y_T(L b r F_iSfG I_g_l(v L_g(x8_d o s(t(I(Wc(dS_L_T_C_a_S kY L f_l H(l_h_Y_s(p x_f(t i1Aa_L(k_( r H(I N g(jF F p (Pe_D_y_A b_x(dj(j9_i H(k de(G(F_Dl_N(EH,    `_ m(cHw_s(e b L(u(S(p(_ Gp o(pv0_LG n Lp(d(m f_H x_k y(y (U_g(_Pe_c_D(k(l g_r(e i,6`ExqPn Z_g_cExw   J(y(G(c q r_S U(y u(X y_gB_Sn(t(Gj G(yO W zE_L_f_e i_hP_N(RH(I(G z7(N7 , XfP_i hQ N_i_z(I(e M_gSb 
+(E_( qS Eo_gnQ(b_hEx_q(hh(M
+fW_i(t(N_S, J c f B m_T(l_L u(h f_ka(knRn n T R(R_i(I A_LjT, )f sB_x_T_s_Cj m(y M_S Y(b(j(I_q_Y i(t w(v(h_k(U(B9 T(yQ w_wR n_xv(v(E(d(p_a_C sD R O u F_gP xR_D_i_d_f(u zP(c1S(p P_h H(d(h ,Oc x_L(y_eEw(M z l F(y_lkMk_C A0 g b(j u(t_Y   de(UjB s(W n(XY(I_q N(
+ oJ r s H8Y L D z_TEx ( b(c_S_s_x_H(ig A(E g_h_C(_ _ Z n_h y_TlD(N_N(E_L(p(S(p(_O(F,(- Pe_zw L 
+c H_y W(kB(NL_w F_L_n_c(p_C(pC8B S bR ,u h_w
+p(t_M_vD_h_N_i h Z B(G(t  :   
+u_e sZ b) -V0_d_S(A(d1(yS(W oQW_m Fd b r(n(x_L_(O f(e z H_Wh r_D(ez_m m LpE(_J(E z(W_h_k(p (Vj aS   `( L g d_iB0Bt_ej(m H_i_a z(p P p(W W_h(vk7 Hw(xm G_h9O(E(FW(l_L(ARw_e M_g F E R G_x1_d(h_q_hv(Fg1 W G_D_S_GGt A y_c(h(B(A Pe(pF_c_D f_Hc(W0(j(b u(I(G(_ v H k_x(c k(k_N(y_i s(j(p8C_L L(_ r_D_(s(_R UcP x Z_S(ocg_l_N_b(j(I l7 q_l_G_S ,Vf,,
+J(tT_x E(yt(
+Q N FqD_a de v_x_Ke(Q(s(n i_CExj_k_S(I(c(W f j , _ G_C(iC n(I nM w qR(A b_l_hB(Ee(p_dv_NqM I n(ma_y_k x_YF(X(G_q ( T,,- rP M_g   `_0_Y(hD M(d(d(_-N_nC(u_b_m de_eR_M p(c jS S(yQ_T_bS g i z(d_L(F9_mF_h(d_g(v(A_g(x_M_h H1 i(b Lm b P(d w(t(N0(y ( rEx_HfCmC Q_c y A(k(I(e(_(
+ i_D_MG(R_C(j(c r(U(ZG H H_L i w_F)U(_ Q(I8(k_D p F_M uP_p(t z n h fW1l_Y(p_e(c(I(I O_S(X(x(G   L_gR Fw(t(h i_xS_C_f o Q_D y(h(qg(s q(_ ,U E U_n_lP_M(I g(X_( z_D HfTq a_e(NMv7Q(pE h B F F_M_b_L_y(Wn_f_q_c_S(N(cRl_qEx t_s(_u_D k A_ de(v W(k(v(Nl(x t_m r A(r_L0 u(A_A_mY_Lx_L(k_E nQ(b ( b_D(y(Sf F O nE(F_h zS Hh i) Exj_M_m(d_b(E u zZ u_a Pe_T,     F(_ bEx(h(t b_  
+(d(n(U
+(xQc o T_M( IG uQ_n_e_z1_e(E(b(Sm L s Sj f1(W_(O(e_M g ,f_a_h_T(L(e(I i(_ Z(I_h_q H(xB,). Y RgQ_D b de_z_S_M(kB_aEx(p w i N W b s_iz P(pIa_l L_oz_Nj(tQ(e(kQr i F H(W(R W(S_xZc(Xv(A_xl n Hc G_GY u0E(t(p_d(Rw   (
+_B_i
+R,): Gd0_Df O(C(e_x P u u x(s_L(y(e B b sBcQ(c(e(Ie fS d(_7r_x_k(N(T_bqP_M(y_m(j(v P(j T1_M(
+_Hf(d(n_( f F(I_n9 g_YI_g_hEx W(p yx n(e(G A_F_M p(W(e,_, q(G(N(G_q_a(e_hQ(W g_S  S wq_w G8_i(tg_q7(v(j_S(y_S_Or o_b(_ Q E(hZ_C_C k(
+_S _ Pe Rg(s(n_N_s de  PeF_L(EW bD(E(ejA , DnExD E_G Z T_c(kE(U(R(R z(A sM ( a(t H_b_k8_T8_C_i(k(m(_Jh zJw N(x W_v(_ r_m sO h_MG(cEx(X_E(xm(dB1_M x(kgEx_k_e_S_h_l_w H(d Q(b(E n_YG
+(d_T_v(x(h)   
+ a_L(
+(A(bHwZ W i(e l(X p_cS n   L_L_x R y(h1n z(X_nkY(R(k_( f u(y E1 ( C_Me(X_a(_D_M_h(U(lZ O1S, de_mS1 d F(y_TLg(G(j_h(j(Iv_MEx_H q v_c r A_qw_Cz s_YMExa_h A(I(y A S ,D(N(_ u_nR U(t_D0(j hR L E(j_C(Xf(m(tP z S G U P_rC f_b(y_y_e g(d9r de H(W_M(i_x i(I i qg(EvD_q(s(e_g(c(I w(S A_F k_l o)-
+(r_( M Hl_C p_s H A_M7 xg(k W b_h_i H   .
+l(t(k0 F_Lj_hf(p_l(I(p
+ z(e, Ex(u(G_WeD F(d b B b(e_Y_N_x(W b(_s Ld(W(mF_S8_A_f_T H d_i Q(QaI N_Cn(m(E(k w(I P_ri_m_d Z b o_c(e(kn_M(eD(pH pF8(b x B_x_f(R q
+_a(kd E_S(x H(N   )(1_xoJ_cF G B(h(e(S_E(R s zJ_M(X_D_(o_h v_g r_eo U(Gk(l(G(yO_a(I_i(pz rB N F jZt_m L(l(t s i(c_E_rzEx I(W_D(XM H_L u x q(p(p sR n_Y_a_G_D(y(F_( M_q(XH , L_oh_M n O_f W(X h(_UWw(c Q(kBk(t ( de n n L(b PeR zY_E(_ P_Dj_yO y(ba_g
+ F A_g(v_v_( ( T(l9(d_S(A(e b_T_E s(_ y Hx(p_Y(W z y L wj_iW(R_rS H Pe(eB(T_h_T_ `zY n_n_b yPm GwBq_aP,4Pe_z_i(t(c(u M_c   r_l gFm(k(h_M1 _Dd_x G fQ_r(h_g I(r f_D(p(kc A m(W( IG_g(X t , P(h(dS(pR b(e b q(Gq(j(v(u7C ( , X_y_S(p_C A(d_m(e(k d i P_kEx,`(u_b(E(j s 
+(T(
+F(eR0v_L_TG I f(j(E iH(Q(ykq(E_S_Y_wD_Lr N p H n7_i_z_c(v x(p(N S_L s sEg A_s8 A(E9w(e Z w q(t_d_Sj_ebP O(p(Wn(h(XO_h m(X8_k   Z R(x(t_T(G(S0 g s_m U_i i B_GExZg(pD_C(X_M u N(y,   
+_e(_U(dg(E Mv ,h b_c W_cH b H_iR(Q8h x z B 
+ w) v(_ u_Y(k(Sa Hf L   Ex_T_iC I_N(X wB_N_S(lF(A(G h_l(j Hn n_M(I1o S_M(e_c(I(G_qD mD(I(l(N ( L u_w_d_f_n z0(k(I p(cB_C(e_lY_a o z T B(yf_H(W_bQz_L_sC_g) - t_C(e(t(bRb S_x L FwG(ez  r(p_m_Us1F pR(h i_h(c(k de_T p
+c j fR F_i_f N P1Z_M_h(y q1 g_q_y_a(AR(m(c_g G x(I(b_gQ(W(EB o_D ,7 H s W H(_ B P_L(x_M(
+    `, g x_wW_h wq(y(N_Nv H_H(kD(N(b L PeE_G(c9_Nc f_b (w T F Hh_s_s_cS(X r(p(G(X(W(I(d xDm
+_N(G W_g x W b_Lz9_d(jg8D H(u_Dh_g_gExh i o_S_M(l(c_L_S U 3(y E_D de(h(F(e_w_L_g d(X(lE ( C_E
+p_L k(d_E(X_( P x,--)-X(xd_bj(E(c0_r(h f Z_E_a yd s n(u(hR_ de de_g(kEx_fEx(c iC(v(tF_ IGp_i(n(p S(A nF_n r_D8 A_lfI(W, ) C h m(I_Cz_aP z(e T(l f F z_h_S(Nw(d_T(Mw_zPw M(e b(j(m i(v_Lj M1 W_Y_xe_s(_ WlH(y r(I u Lc(F (sP_D_m_g_LvC x_Y i(y(qb_M _N gB n_m(_ Z8 M,_,)
+ MwH1t Q d(Eo(x_z m   J_L O(j z_L(p i1_( gD S(k(GMl(v(kQ(y_mRc_l_c(p(_ M(E(e(I,`
+(v T Z qF(GI(p_l_Y(Rt(S(S7_f_D yw(eA  `( X u
+u(y de_Dc8 i(_ W L_b   `
+ m_C_Yq(k z_x(p_a , X_y(dHfD_k(E_i m_Dl(I_nA(I(ja w uR(E_x_kP s)Xf_l_y E G(e Pe H(dI s S b d f_d_T i(X7P(N(e(U_b0r_i w L bR b_nkF(k(p B g(e_S_s_x9 G_L i(e0(Nz B UfY N_c _ P_S_y(_0_Sv Q o(fE(k(y zF(t(j(W(U u_k(e(p, M n_x A_A_A_C_yq q b(d L(R_C Fd(v(X H(j rW H D_c_l(G(I_f_E x n_DqYc(dB_i o B zEj(
+N bPv(e(t(h_Y PeS b,.`__ y_c(u s(U_g U (7Z_xS1(Tv(t_t(p_x_r s(kj_D(RGc S R R_S_h_( de(LF 
+ T z(h_E(k_D_r GkW i h P(d7_sC(_ f_hxh_N(GjB A(h8_C(I u_f(_ zZ(z(W L_So(bD(E L   V_S p_L(c(m (D n iRg_a w_n W(_F_n Exf)Ug Z H(y(Wxk_m(e(q iS O(e_d r(vE0 F(_s_G(Xx z_z(I(c_E(k(p(t i(i_d_w r R_k(jF_Cn A_c W(p_l(y_l d(h(G r M, Qr_Cv(Q(t8(cE_hS_gP h x ,    ,
+(S_iZg
+ x(k F 
+Pe(eF x H P BwI_a(v(G_Go MEx(pv L_S_r r_M_C(X(S(c(n H_g(j s_Sa_b w q z g(m_E_g_c_( B(E M_B9Ex1_S (u j(I_(`_
+(r b(_ G_n(tz_M i(
+ X(p(S jB(y Hm(p_a(yd(q(I(B_gF hB q_gD s(Fq(p_Yj o x(N(Xr(X(x_T i N1 n_g(h(t(k M Rn_w_Y R(h hW b_MwD1 _ , J(e_C_UG(m(b_D H_S(oc(uCm_g(kQ b(d_x(h(x t_x(yO U uEx H_y_k_vj_g9_f(E_q   L hE Ie(A8(E z l(l(rE P(d(G b i_y N T_MjF

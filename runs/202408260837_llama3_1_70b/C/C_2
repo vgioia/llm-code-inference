@@ -1,0 +1,27 @@
+```python
+import sys
+from collections import defaultdict
+
+def dfs(u, p):
+    for v in g[u]:
+        if v != p:
+            dfs(v, u)
+            if dp[v] + 1 > dp[u] and v[u] < v[v]:
+                dp[u] = dp[v] + 1
+
+def solve():
+    n = int(input())
+    p = list(map(int, input().split()))
+    v = list(map(int, input().split()))
+    g = defaultdict(list)
+    for i in range(n - 1):
+        g[p[i]].append(i + 2)
+        g[i + 2].append(p[i])
+    dp = [0] * (n + 1)
+    dp[1] = 1
+    dfs(1, 0)
+    print(*dp[2:])
+
+if __name__ == "__main__":
+    solve()
+```

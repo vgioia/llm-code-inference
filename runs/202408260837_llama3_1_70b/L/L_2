@@ -1,0 +1,27 @@
+```python
+s = input()
+k = int(input())
+n = len(s)
+
+vet = sorted(s)
+ind = 0
+pos = [i for i in range(n)]
+
+for i in range(k):
+    aux = [0]*((n-i-1)//k + 1)
+    j = i
+    p = 0
+    while j < n:
+        aux[p] = s[j]
+        j += k
+        p += 1
+    aux = sorted(aux)
+    j = i
+    p = 0
+    while j < n:
+        s[j] = aux[p]
+        p += 1
+        j += k
+
+print("".join(s))
+```

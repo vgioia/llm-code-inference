@@ -1,0 +1,53 @@
+```python
+def get_divisions_by_K(size_string, k):
+    division_size = min(size_string % k, 1) if k != size_string % k else size_string // k
+    return division_size
+
+
+s = input()
+k = int(input())
+string_length = len(s)
+
+ans = [None] * string_length
+
+controle_pos = [None] * k
+
+group_division_size = get_divisions_by_K(string_length, k)
+current = ""
+list_aux = ""
+
+if string_length == k:
+    s = "".join(sorted(s))
+else:
+    if k == 1:
+        s = "".join(sorted(s))
+    else:
+        while string_length >= k:
+            controle_pos[:k] = list(s[:k])
+            for l in sorted(controle_pos[:k]):
+                if l:
+                    list_aux += l
+
+            controle_pos[:k] = None
+            ans[:k] = list_aux[:k]
+            ans = "".join(ans[:k])
+
+            if k > string_length // k:
+                ans += list_aux[k:]
+
+            if group_division_size != k:
+                controle_pos[get_divisions_by_K(string_length, k)] = ""
+            else:
+                controle_pos[:string_length // k] = ""
+                group_division_size = 0
+                controle_pos[:group_division_size] = None
+            if k + group_division_size > string_length - k:
+                string_length -= group_division_size
+            else:
+                string_length -= k
+
+            current += list_aux[:k]
+            s = current + s[k + group_division_size:]
+
+print(ans)
+```

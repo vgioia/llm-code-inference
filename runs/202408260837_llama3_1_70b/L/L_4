@@ -1,0 +1,22 @@
+```python
+s = input()
+k = int(input())
+n = len(s)
+ans = [''] * n
+cnt = [0] * 26
+for i in range(n):
+    cnt[ord(s[i]) - ord('a')] += 1
+for i in range(26):
+    for j in range(n):
+        if j % k == 0 and cnt[i] > 0:
+            ans[j] = chr(ord('a') + i)
+            cnt[i] -= 1
+for i in range(n):
+    if ans[i] == '':
+        for j in range(26):
+            if cnt[j] > 0:
+                ans[i] = chr(ord('a') + j)
+                cnt[j] -= 1
+                break
+print(''.join(ans))
+```

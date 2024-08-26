@@ -1,0 +1,14 @@
+```python
+n = int(input())
+vetor = list(map(int, input().split()))
+
+soma = 0
+count = 0
+
+for i in range(n):
+    if vetor[i] == 1:
+        count += 1
+    soma += (i + 1) * (n - i) // 2
+
+print(soma - (count * (count - 1) // 2))
+```

@@ -1,0 +1,24 @@
+```python
+import heapq
+
+N, K = map(int, input().split())
+flores = list(map(int, input().split()))
+
+heap = []
+for flor in flores:
+    heapq.heappush(heap, (-flor, flor))
+
+for _ in range(K - 1):
+    _, flor = heapq.heappop(heap)
+    if flor == 0:
+        break
+    polen = sum(int(d) for d in str(flor))
+    flor -= polen
+    heapq.heappush(heap, (-flor, flor))
+
+if heap:
+    _, flor = heapq.heappop(heap)
+    print(sum(int(d) for d in str(flor)))
+else:
+    print(0)
+```

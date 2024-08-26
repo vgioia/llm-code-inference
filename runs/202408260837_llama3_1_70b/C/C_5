@@ -1,0 +1,31 @@
+```python
+from sys import stdin
+input = stdin.readline
+
+def dfs(v):
+    ans[v] = 1
+    for u in adj[v]:
+        if ans[u] == -1:
+            dfs(u)
+        if v_values[v] > u_values[u]:
+            ans[v] = max(ans[v], ans[u] + 1)
+
+N = int(input())
+p = list(map(int, input().split()))
+v = list(map(int, input().split()))
+
+adj = [[] for _ in range(N)]
+for i in range(N - 1):
+    adj[p[i] - 1].append(i + 1)
+    adj[i + 1].append(p[i] - 1)
+
+u_values = sorted(enumerate(v), key=lambda x: x[1])
+v_values = [0] * N
+for i in range(N):
+    v_values[u_values[i][0]] = i
+
+ans = [-1] * N
+dfs(0)
+
+print(*ans[1:])
+```

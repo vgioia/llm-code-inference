@@ -1,0 +1,21 @@
+```python
+import sys
+
+N = int(sys.stdin.readline().strip())
+sequencia = list(map(int, sys.stdin.readline().split()))
+
+quantidade_0, quantidade_1 = 0, 0
+quantidade_total = 0
+
+for num in sequencia:
+    if num == 0:
+        quantidade_total += quantidade_1
+        quantidade_0 += 1
+    else:
+        quantidade_total += quantidade_0
+        quantidade_1 += 1
+    if num == 1:
+        quantidade_total += 1
+
+print(quantidade_total)
+```

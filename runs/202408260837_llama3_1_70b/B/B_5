@@ -1,0 +1,32 @@
+```python
+def calcular_inversoes(arr):
+    inversoes = 0
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i] > arr[j]:
+                inversoes += 1
+    return inversoes
+
+def calcular_max_inversoes(arr):
+    max_inversoes = 0
+    for i in range(1, len(arr)):
+        for j in range(i, len(arr)):
+            inversoes = 0
+            for k in range(j-i+1):
+                for l in range(j+1, len(arr)):
+                    if arr[i+k] > arr[l]:
+                        inversoes += 1
+            max_inversoes = max(max_inversoes, inversoes)
+    return max_inversoes
+
+def main():
+    n = int(input())
+    arr = list(map(int, input().split()))
+    max_inversoes = calcular_max_inversoes(arr)
+    inversoes = calcular_inversoes(arr)
+    k = inversoes - max_inversoes
+    print(k)
+
+if __name__ == "__main__":
+    main()
+```

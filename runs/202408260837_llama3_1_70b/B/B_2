@@ -1,0 +1,21 @@
+```python
+def res():
+    tamanho = int(input())
+    lista = list(map(int, input().split()))
+    contagem = 0
+    maximo = 0
+    controle = False
+
+    for i in range(tamanho):
+        temp = lista[i]
+        if temp != i+1 and not controle:
+            controle = True
+        if temp == i+1 and controle:
+            contagem += 1
+            controle = False
+    if controle:
+        contagem += 1
+    print(contagem)
+
+res()
+```

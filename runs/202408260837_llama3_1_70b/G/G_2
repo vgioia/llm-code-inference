@@ -1,0 +1,23 @@
+```python
+import sys
+
+n = int(input())
+capitais = [list(map(int, input().split())) for _ in range(n)]
+
+infinite = set(range(1, n+1))
+
+min_x = min(x for x, y in capitais)
+max_x = max(x for x, y in capitais)
+min_y = min(y for x, y in capitais)
+max_y = max(y for x, y in capitais)
+
+if min_x == max_x or min_y == max_y:
+    print(*range(1, n+1))
+    sys.exit()
+
+for i, (x, y) in enumerate(capitais):
+    if x == min_x or x == max_x or y == min_y or y == max_y:
+        infinite.discard(i+1)
+
+print(*sorted(infinite))
+```

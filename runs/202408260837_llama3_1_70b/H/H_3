@@ -1,0 +1,42 @@
+```python
+import sys
+
+N, S = map(int, input().split())
+jobs = [list(map(int, input().split())) for _ in range(N)]
+
+jobs.sort(key=lambda x: x[1])
+
+lucro_maximo = 0
+dia_atual = 0
+jobs_filtrados = []
+
+for l, r, c in jobs:
+    if l >= dia_atual:
+        jobs_filtrados.append((l, r, c))
+        dia_atual = r
+
+jobs = jobs_filtrados
+
+jobs_filtrados = []
+soma_precos = 0
+
+for l, r, c in jobs:
+    jobs_filtrados.append((r, S * (r - l) - c))
+    soma_precos += (r - l)
+
+jobs = jobs_filtrados
+
+jobs.sort(key=lambda x: x[0])
+
+lucro_maximo = 0
+dia_atual = 0
+soma_precos = 0
+
+for r, lucro in jobs:
+    if r >= dia_atual:
+        lucro_maximo = max(lucro_maximo, lucro + soma_precos)
+        soma_precos += lucro
+        dia_atual = r
+
+print(lucro_maximo)
+```
