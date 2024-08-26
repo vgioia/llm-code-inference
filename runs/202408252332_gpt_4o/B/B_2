@@ -1,0 +1,23 @@
+```python
+def lis_length(arr):
+    from bisect import bisect_left
+    lis = []
+    for x in arr:
+        pos = bisect_left(lis, x)
+        if pos == len(lis):
+            lis.append(x)
+        else:
+            lis[pos] = x
+    return len(lis)
+
+def min_shuffles(N, permutation):
+    lds_length = lis_length([-x for x in permutation])
+    return N - lds_length
+
+import sys
+input = sys.stdin.read
+data = input().split()
+N = int(data[0])
+permutation = list(map(int, data[1:]))
+print(min_shuffles(N, permutation))
+```

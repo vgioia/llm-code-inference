@@ -1,0 +1,40 @@
+```python
+import sys
+from collections import defaultdict, deque
+
+input = sys.stdin.read
+data = input().split()
+
+N = int(data[0])
+parents = list(map(int, data[1:N]))
+values = list(map(int, data[N:]))
+
+# Graph creation
+graph = defaultdict(list)
+for i in range(2, N+1):
+    graph[parents[i-2]].append(i)
+
+# To store the longest increasing path length
+dp = [-1] * (N+1)
+dp[1] = 1
+
+def dfs(node):
+    if dp[node] != -1:
+        return dp[node]
+    
+    max_length = 1
+    for neighbor in graph[node]:
+        if values[neighbor-1] > values[node-1]:  # Check the "more likes" condition
+            max_length = max(max_length, 1 + dfs(neighbor))
+    
+    dp[node] = max_length
+    return dp[node]
+
+# Run DFS from every node
+for i in range(2, N+1):
+    dfs(i)
+
+# Collect the results for nodes 2 to N
+results = [dp[i] for i in range(2, N+1)]
+print(" ".join(map(str, results)))
+```

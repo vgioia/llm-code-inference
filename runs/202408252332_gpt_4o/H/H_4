@@ -1,0 +1,33 @@
+```python
+import sys
+input = sys.stdin.read
+from collections import defaultdict
+import heapq
+
+data = input().strip().split()
+N = int(data[0])
+S = int(data[1])
+
+jobs = []
+for i in range(N):
+    l, r, c = int(data[2 + i * 3]), int(data[3 + i * 3]), int(data[4 + i * 3])
+    jobs.append((l, r, c))
+
+jobs.sort(key=lambda x: x[1])
+
+dp = defaultdict(int)  # dp[i] será o lucro máximo até o dia i
+
+max_earnings = 0
+
+hq = []
+for l, r, c in jobs:
+    while hq and hq[0][0] < l:
+        max_earnings = max(max_earnings, hq[0][1])
+        heapq.heappop(hq)
+    
+    profit = (r - l + 1) * S - c + max_earnings
+    dp[r] = max(dp[r], profit)
+    heapq.heappush(hq, (r, dp[r]))
+
+print(max(dp.values()))
+```

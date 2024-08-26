@@ -1,0 +1,26 @@
+```python
+import sys
+input = sys.stdin.read
+
+# Função para contar os subvetores com um número ímpar de '1's
+def count_odd_ones_subarrays(n, binary_list):
+    count = [0, 0]  # count[0]: contagem de prefixos com um número par de '1's
+    count[1] = 1    # count[1]: contagem de prefixos com um número ímpar de '1's
+    odd_count = 0
+    prefix_ones = 0
+    
+    for b in binary_list:
+        prefix_ones ^= b  # Incrementa ou decrea o número de '1's em prefix_ones
+        odd_count += count[prefix_ones]
+        count[prefix_ones] += 1
+
+    return odd_count
+
+# Lendo a entrada
+data = input().split()
+n = int(data[0])
+binary_list = list(map(int, data[1:]))
+
+# Calculando e imprimindo o resultado
+print(count_odd_ones_subarrays(n, binary_list))
+```

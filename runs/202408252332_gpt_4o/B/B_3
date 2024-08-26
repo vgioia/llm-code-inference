@@ -1,0 +1,26 @@
+```python
+def minimum_shuffles(N, target):
+    current = list(range(1, N + 1))
+    shuffles = 0
+    while current != target:
+        L, R = [], []
+        
+        for i, value in enumerate(target):
+            if current and value < current[0]:  
+                L.append(value)
+            else:
+                R.append(value)
+        
+        current = L + R
+        shuffles += 1
+    
+    return shuffles
+
+import sys
+input = sys.stdin.read
+data = input().strip().split()
+N = int(data[0])
+target = list(map(int, data[1:]))
+
+print(minimum_shuffles(N, target))
+```

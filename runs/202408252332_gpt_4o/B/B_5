@@ -1,0 +1,25 @@
+```python
+def min_shuffles(N, perm):
+    pos = [0] * (N + 1)
+    for i in range(N):
+        pos[perm[i]] = i
+    max_len = 0
+    curr_len = 1
+    for i in range(1, N):
+        if pos[i] < pos[i + 1]:
+            curr_len += 1
+        else:
+            max_len = max(max_len, curr_len)
+            curr_len = 1
+    max_len = max(max_len, curr_len)
+    return (N - max_len + 1) // 2
+
+import sys
+input = sys.stdin.read
+data = input().split()
+
+N = int(data[0])
+perm = list(map(int, data[1:]))
+
+print(min_shuffles(N, perm))
+```

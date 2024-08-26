@@ -1,0 +1,66 @@
+```python
+import sys
+import math
+from heapq import heappop, heappush
+
+input = sys.stdin.read
+data = input().split()
+
+# Read rectangle vertices
+vertices = []
+for i in range(4):
+    x = int(data[2 * i])
+    y = int(data[2 * i + 1])
+    vertices.append((x, y))
+
+# Read number of players
+N_index = 8
+N = int(data[N_index])
+
+# Read player positions
+players = []
+for i in range(N):
+    x = int(data[N_index + 1 + 2 * i])
+    y = int(data[N_index + 2 + 2 * i])
+    players.append((x, y))
+
+# Function to calculate the max distance
+def max_distance_to_rectangle(x, y, vertices):
+    v1, v2, v3, v4 = vertices
+    minX = max(v1[0], v2[0], v3[0], v4[0])
+    maxX = min(v1[0], v2[0], v3[0], v4[0])
+    minY = max(v1[1], v2[1], v3[1], v4[1])
+    maxY = min(v1[1], v2[1], v3[1], v4[1])
+    
+    if minX <= x <= maxX and minY <= y <= maxY:
+        return 0
+    if x < minX:
+        dx = minX - x
+    elif x > maxX:
+        dx = x - maxX
+    else:
+        dx = 0
+    if y < minY:
+        dy = minY - y
+    elif y > maxY:
+        dy = y - maxY
+    else:
+        dy = 0
+    return math.sqrt(dx * dx + dy * dy)
+
+def check(radius):
+    for vx, vy in vertices:
+        if all(math.sqrt((px - vx)**2 + (py - vy)**2) > radius for px, py in players):
+            return False
+    return True
+
+lo, hi = 0, max(math.sqrt((px - vx)**2 + (py - vy)**2) for px, py in players for vx, vy in vertices)
+while hi - lo > 1e-7:
+    mid = (lo + hi) / 2
+    if check(mid):
+        hi = mid
+    else:
+        lo = mid
+
+print(f'{hi:.12f}')
+```

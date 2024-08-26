@@ -1,0 +1,27 @@
+```python
+import sys
+input = sys.stdin.read
+
+def ponto_fronteira(ponto, xmin, xmax, ymin, ymax):
+    x, y = ponto
+    return x == xmin or x == xmax or y == ymin or y == ymax
+
+def main():
+    dados = input().strip().split()
+    N = int(dados[0])
+    pontos = [(int(dados[2*i+1]), int(dados[2*i+2])) for i in range(N)]
+    
+    xmin = min(p.x for p in pontos)
+    xmax = max(p.x for p in pontos)
+    ymin = min(p.y for p in pontos)
+    ymax = max(p.y for p in pontos)
+
+    infinitos = []
+    for i, ponto in enumerate(pontos):
+        if ponto_fronteira(ponto, xmin, xmax, ymin, ymax):
+            infinitos.append(i + 1)
+    
+    print(" ".join(map(str, infinitos)))
+
+main()
+```

@@ -1,0 +1,19 @@
+```python
+import sys
+input = sys.stdin.read
+data = input().strip().split()
+
+N = int(data[0])
+K = int(data[1])
+poles = [int(data[i + 2]) for i in range(N)]
+
+def soma_digitos(x):
+    return sum(map(int, str(x)))
+
+for _ in range(K):
+    max_index = poles.index(max(poles))
+    coleta = soma_digitos(poles[max_index])
+    poles[max_index] -= coleta
+    
+print(coleta)
+```

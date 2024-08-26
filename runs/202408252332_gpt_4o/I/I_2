@@ -1,0 +1,24 @@
+```python
+import sys
+input = sys.stdin.read
+data = input().split()
+
+N = int(data[0])
+b = list(map(int, data[1:]))
+
+odd_count = 0
+even_count = 1
+current_sum = 0
+total_odd_subvectors = 0
+
+for bit in b:
+    current_sum += bit
+    if current_sum % 2 == 0:
+        total_odd_subvectors += odd_count
+        even_count += 1
+    else:
+        total_odd_subvectors += even_count
+        odd_count += 1
+
+print(total_odd_subvectors)
+```

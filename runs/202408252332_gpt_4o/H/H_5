@@ -1,0 +1,49 @@
+```python
+import sys
+input = sys.stdin.read
+
+def main():
+    import heapq
+    from collections import defaultdict
+    
+    data = input().split()
+    
+    N = int(data[0])
+    S = int(data[1])
+    
+    jobs = []
+    
+    idx = 2
+    for _ in range(N):
+        start = int(data[idx])
+        end = int(data[idx+1])
+        cost = int(data[idx+2])
+        jobs.append((start, end, cost))
+        idx += 3
+    
+    jobs.sort()
+    
+    max_profit_at_day = defaultdict(int)
+    
+    pq = []
+    max_profit = 0
+    
+    for start, end, cost in jobs:
+        while pq and pq[0][0] < start:
+            old_end, old_profit = heapq.heappop(pq)
+            max_profit = max(max_profit, old_profit)
+        
+        days_worked = end - start + 1
+        new_profit = max_profit + days_worked * S - cost
+        if new_profit > max_profit_at_day[end]:
+            max_profit_at_day[end] = new_profit
+            heapq.heappush(pq, (end, new_profit))
+    
+    while pq:
+        max_profit = max(max_profit, heapq.heappop(pq)[1])
+
+    print(max_profit)
+
+if __name__ == "__main__":
+    main()
+```

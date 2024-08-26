@@ -1,0 +1,17 @@
+```python
+import sys
+
+def main():
+    input = sys.stdin.read()
+    lines = input.split('\n')
+    
+    N, H = map(int, lines[0].split())
+    heights = list(map(int, lines[1].split()))
+    
+    count = sum(1 for height in heights if H >= height)
+    
+    print(count)
+    
+if __name__ == "__main__":
+    main()
+```

@@ -1,0 +1,48 @@
+```python
+from sys import stdin, stdout
+import heapq
+
+input = stdin.read
+data = input().split()
+N = int(data[0])
+S = int(data[1])
+
+# Jobs will be a list of tuples (end_day, start_day, cost)
+jobs = []
+
+index = 2
+for _ in range(N):
+    l = int(data[index])
+    r = int(data[index + 1])
+    c = int(data[index + 2])
+    index += 3
+    jobs.append((r, l, c))
+
+# Sort jobs by their ending day, if they end on the same day, sort by starting day
+jobs.sort()
+
+# Priority queue holds tuples of (profit, end_day of the last worked job)
+pq = []
+
+# We'll use a dictionary to store maximum profits by day
+profit_by_day = {}
+max_profit = 0
+
+for r, l, c in jobs:
+    # Remove jobs from the queue that end before current job can start
+    while pq and pq[0][1] < l:
+        max_profit = max(max_profit, heapq.heappop(pq)[0])
+    
+    # Calculate profit if starting this job after last allowed day
+    profit = (r - l + 1) * S - c
+    
+    # If working until day r results in more profit, push it to the queue
+    if profit + max_profit > 0:
+        heapq.heappush(pq, (profit + max_profit, r))
+    
+# Final sweep for any remaining candidates
+while pq:
+    max_profit = max(max_profit, heapq.heappop(pq)[0])
+
+print(max_profit)
+```

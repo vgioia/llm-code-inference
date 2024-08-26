@@ -1,0 +1,60 @@
+```python
+import math
+import sys
+input = sys.stdin.read
+data = input().split()
+
+x = [int(data[i*2]) for i in range(4)]
+y = [int(data[i*2+1]) for i in range(4)]
+N = int(data[8])
+players = [(int(data[9+i*2]), int(data[10+i*2])) for i in range(N)]
+
+min_x = min(x)
+max_x = max(x)
+min_y = min(y)
+max_y = max(y)
+
+def distance(x1, y1, x2, y2):
+    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+
+def point_to_segment_distance(px, py, x1, y1, x2, y2):
+    if x1 == x2 and y1 == y2:
+        return distance(px, py, x1, y1)
+    
+    t = max(0, min(1, ((px - x1) * (x2 - x1) + (py - y1) * (y2 - y1)) / ((x2 - x1) ** 2 + (y2 - y1) ** 2)))
+    x_proj = x1 + t * (x2 - x1)
+    y_proj = y1 + t * (y2 - y1)
+    return distance(px, py, x_proj, y_proj)
+
+def is_covered(d):
+    corners = [(min_x, min_y), (min_x, max_y), (max_x, min_y), (max_x, max_y)]
+    for (cx, cy) in corners:
+        if all(distance(cx, cy, px, py) > d for (px, py) in players):
+            return False
+    
+    for x in range(min_x, max_x + 1):
+        if all(point_to_segment_distance(x, min_y, px, py, px, py) > d for px, py in players):
+            return False
+        if all(point_to_segment_distance(x, max_y, px, py, px, py) > d for px, py in players):
+            return False
+ 
+    for y in range(min_y, max_y + 1):
+        if all(point_to_segment_distance(min_x, y, px, py, px, py) > d for px, py in players):
+            return False
+        if all(point_to_segment_distance(max_x, y, px, py, px, py) > d for px, py in players):
+            return False
+
+    return True
+
+lo, hi = 0, math.sqrt((max_x - min_x) ** 2 + (max_y - min_y) ** 2)
+eps = 1e-6
+
+while hi - lo > eps:
+    mid = (lo + hi) / 2
+    if is_covered(mid):
+        hi = mid
+    else:
+        lo = mid
+
+print(f"{(lo + hi) / 2:.6f}")
+```

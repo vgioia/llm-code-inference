@@ -1,0 +1,22 @@
+```python
+import sys
+input = sys.stdin.read
+
+data = input().split()
+N = int(data[0])
+binary_sequence = [int(x) for x in data[1:]]
+
+count_odd = 0
+current_count = 0
+prefix_counts = {0: 1}
+
+for bit in binary_sequence:
+    current_count ^= bit
+    if current_count in prefix_counts:
+        count_odd += prefix_counts[current_count]
+        prefix_counts[current_count] += 1
+    else:
+        prefix_counts[current_count] = 1
+
+print(count_odd)
+```

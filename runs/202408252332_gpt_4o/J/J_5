@@ -1,0 +1,40 @@
+```python
+import math
+import sys
+input = sys.stdin.read
+
+def distance(x1, y1, x2, y2):
+    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+
+def max_distance_to_rectangle(vertices, players):
+    x_min = min(vertices[0][0], vertices[1][0], vertices[2][0], vertices[3][0])
+    x_max = max(vertices[0][0], vertices[1][0], vertices[2][0], vertices[3][0])
+    y_min = min(vertices[0][1], vertices[1][1], vertices[2][1], vertices[3][1])
+    y_max = max(vertices[0][1], vertices[1][1], vertices[2][1], vertices[3][1])
+
+    max_d = 0
+
+    for x in (x_min, x_max):
+        for y in range(y_min, y_max + 1):
+            min_d = float('inf')
+            for px, py in players:
+                min_d = min(min_d, distance(px, py, x, y))
+            max_d = max(max_d, min_d)
+
+    for y in (y_min, y_max):
+        for x in range(x_min, x_max + 1):
+            min_d = float('inf')
+            for px, py in players:
+                min_d = min(min_d, distance(px, py, x, y))
+            max_d = max(max_d, min_d)
+
+    return max_d
+
+data = input().split()
+vertices = [(int(data[i*2]), int(data[i*2+1])) for i in range(4)]
+N = int(data[8])
+players = [(int(data[9 + i*2]), int(data[9 + i*2 + 1])) for i in range(N)]
+
+result = max_distance_to_rectangle(vertices, players)
+print(f"{result:.12f}")
+```

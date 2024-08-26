@@ -1,0 +1,28 @@
+```python
+import sys
+from collections import defaultdict
+
+input = sys.stdin.read
+data = input().split()
+
+N = int(data[0])
+sequence = list(map(int, data[1:]))
+
+prefix_sums = defaultdict(int)
+prefix_sums[0] = 1
+
+current_sum = 0
+odd_count = 0
+
+for num in sequence:
+    current_sum += num
+    if current_sum % 2 == 1:
+        odd_count += prefix_sums[0]
+        odd_count += prefix_sums[1]
+    else:
+        odd_count += prefix_sums[1]
+        odd_count += prefix_sums[0]
+    prefix_sums[current_sum % 2] += 1
+
+print(odd_count)
+```

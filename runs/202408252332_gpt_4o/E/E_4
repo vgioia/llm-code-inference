@@ -1,0 +1,30 @@
+```python
+import sys
+input = sys.stdin.read
+from heapq import heapify, heappop, heappush
+
+def sum_digits(x):
+    return sum(int(digit) for digit in str(x))
+
+data = input().strip().split()
+N = int(data[0])
+K = int(data[1])
+flowers = list(map(int, data[2:]))
+
+# We will use a max heap to keep track of the flowers with the most pollen.
+# Python's heapq is a min-heap, so we store negatives to simulate a max-heap.
+max_heap = [(-pollen, index) for index, pollen in enumerate(flowers)]
+heapify(max_heap)
+
+for _ in range(K):
+    max_pollen, idx = heappop(max_heap)
+    max_pollen = -max_pollen
+    if max_pollen == 0:
+        collected_pollen = 0
+    else:
+        collected_pollen = sum_digits(max_pollen)
+    new_pollen = max_pollen - collected_pollen
+    heappush(max_heap, (-new_pollen, idx))
+
+print(collected_pollen)
+```

@@ -1,0 +1,30 @@
+```python
+MOD = 998244353
+
+def poly_add_shifted(coeffs_t, coeffs_p, k, n):
+    result = [0] * (n + 1)
+    
+    for i in range(n + 1):
+        shift_ti = i + k if k >= 0 else i
+        shift_pi = i - k if k >= 0 else i
+
+        t_val = coeffs_t[shift_ti] if 0 <= shift_ti <= n else 0
+        p_val = coeffs_p[shift_pi] if 0 <= shift_pi <= n else 0
+        
+        result[i] = (t_val + p_val) % MOD
+        
+    return result
+
+import sys
+input = sys.stdin.read
+data = input().split()
+
+n = int(data[0])
+k = int(data[1])
+t = list(map(int, data[2:n+3]))
+p = list(map(int, data[n+3:]))
+
+result = poly_add_shifted(t, p, k, n)
+
+print(" ".join(map(str, result)))
+```

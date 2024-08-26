@@ -1,0 +1,30 @@
+```python
+import sys
+input = sys.stdin.read
+MOD = 998244353
+
+data = input().split()
+N = int(data[0])
+K = int(data[1])
+
+t_coeffs = list(map(int, data[2:N+3]))
+p_coeffs = list(map(int, data[N+3:N+3+N+1]))
+
+def shift_poly(coeffs, k):
+    res = [0] * (N + 1)
+    for i in range(N+1):
+        for j in range(i+1):
+            if k >= 0:
+                coeff = coeffs[j] * pow(k, i-j, MOD)
+            else:
+                coeff = coeffs[i-j] * pow(-k, i-j, MOD) * (-1 if (i-j)%2 != 0 else 1)
+            res[i] = (res[i] + coeff) % MOD
+    return res
+
+t_shifted = shift_poly(t_coeffs, K)
+p_shifted = shift_poly(p_coeffs, -K)
+
+q_coeffs = [(t_shifted[i] + p_shifted[i]) % MOD for i in range(N + 1)]
+
+print(' '.join(map(str, q_coeffs)))
+```
