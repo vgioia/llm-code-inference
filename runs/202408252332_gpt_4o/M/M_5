@@ -1,0 +1,51 @@
+```python
+def floyd_warshall(graph, n):
+    dist = [row[:] for row in graph]
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if dist[i][j] > dist[i][k] + dist[k][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j]
+    return dist
+
+def main():
+    import sys
+    input = sys.stdin.read
+    data = input().split()
+    
+    idx = 0
+    n = int(data[idx])
+    idx += 1
+    
+    graph = []
+    for i in range(n):
+        graph.append([int(data[idx + j]) for j in range(n)])
+        idx += n
+    
+    dist = floyd_warshall(graph, n)
+    
+    # Check if the table is incoherent
+    for i in range(n):
+        for j in range(n):
+            if dist[i][j] < graph[i][j]:
+                print(-1)
+                return
+    
+    # Find the number of removable flights
+    removable_flights = 0
+    for i in range(n):
+        for j in range(i + 1, n):
+            if graph[i][j] != 0:
+                is_removable = False
+                for k in range(n):
+                    if k != i and k != j and graph[i][k] + graph[k][j] == graph[i][j]:
+                        is_removable = True
+                        break
+                if is_removable:
+                    removable_flights += 1
+                    
+    print(removable_flights)
+
+if __name__ == '__main__':
+    main()
+```

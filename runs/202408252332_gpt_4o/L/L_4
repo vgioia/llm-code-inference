@@ -1,0 +1,21 @@
+```python
+import sys
+input = sys.stdin.read
+data = input().split()
+S = data[0]
+K = int(data[1])
+
+L = len(S)
+best = S
+
+for i in range(K):
+    candidate = ''.join(sorted(S[i::K]))
+    constructed = []
+    iterables = [iter(candidate[j::L // K]) for j in range(L // K)]
+    for j in range(L):
+        constructed.append(next(iterables[j % (L // K)]))
+    constructed = ''.join(constructed)
+    best = min(best, constructed)
+
+print(best)
+```

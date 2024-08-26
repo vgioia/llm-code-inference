@@ -1,0 +1,22 @@
+```python
+def soma_digitos(x):
+    return sum(int(digito) for digito in str(x))
+
+import sys
+input = sys.stdin.read
+data = input().split()
+
+N = int(data[0])
+K = int(data[1])
+flores = [int(data[i + 2]) for i in range(N)]
+
+for _ in range(K - 1):
+    maior = max(flores)
+    idx = flores.index(maior)
+    flores[idx] -= soma_digitos(flores[idx])
+
+maior = max(flores)
+q = soma_digitos(maior)
+
+print(q)
+```

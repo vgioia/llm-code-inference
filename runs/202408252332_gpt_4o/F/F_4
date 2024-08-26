@@ -1,0 +1,30 @@
+```python
+import sys
+input = sys.stdin.read
+data = input().split()
+
+D = int(data[0])
+C = int(data[1])
+R = int(data[2])
+
+c_activities = list(map(int, data[3:3+C]))
+r_activities = list(map(int, data[3+C:]))
+
+c_index = 0
+r_index = 0
+total_activities = 0
+
+while c_index < C or r_index < R:
+    if c_index < C and c_activities[c_index] <= D:
+        D -= c_activities[c_index]
+        c_index += 1
+        total_activities += 1
+    elif r_index < R:
+        D += r_activities[r_index]
+        r_index += 1
+        total_activities += 1
+    else:
+        break
+
+print(total_activities)
+```

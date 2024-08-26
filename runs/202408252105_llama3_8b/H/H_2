@@ -1,9 +1,0 @@
-```
-import sys
-N, S = map(int, input().split())
-dp = [0]
-for _ in range(N):
-    l, r, c = map(int, input().split())
-    dp.append(max(dp[-1], dp[-1] + (r - l) * S - c))
-print(dp[-1])
-```

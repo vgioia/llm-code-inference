@@ -1,0 +1,39 @@
+```python
+from collections import defaultdict, deque
+
+def bfs(root, adj, values):
+    max_photos = [0] * len(values)
+    queue = deque()
+    queue.append((root, values[root], 1))
+    while queue:
+        node, last_value, count = queue.popleft()
+        for neighbor in adj[node]:
+            if values[neighbor] > last_value:
+                max_photos[neighbor] = max(max_photos[neighbor], count + 1)
+                queue.append((neighbor, values[neighbor], count + 1))
+            else:
+                max_photos[neighbor] = max(max_photos[neighbor], count)
+                queue.append((neighbor, values[neighbor], 1))
+    return max_photos
+
+# lendo a entrada
+import sys
+input = sys.stdin.read
+
+data = input().strip().split()
+n = int(data[0])
+
+if n == 1: 
+    print()
+else:
+    parents = list(map(int, data[1:n]))
+    values = [0] + list(map(int, data[n:]))
+
+    adj = defaultdict(list)
+    for i in range(2, n + 1):
+        adj[parents[i - 2]].append(i)
+
+    max_photos = bfs(1, adj, values)
+
+    print(' '.join(map(str, max_photos[2:])))
+```

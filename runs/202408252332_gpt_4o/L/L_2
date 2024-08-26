@@ -1,0 +1,19 @@
+```python
+def minimal_lexicographical_string(s, k):
+    n = len(s)
+    if k == 1:
+        # Special case: When k is 1, we can only perform a complete rotation.
+        return min(s[i:] + s[:i] for i in range(n))
+    else:
+        # Otherwise, we sort it since we can achieve full sortability.
+        return ''.join(sorted(s))
+
+import sys
+input = sys.stdin.read
+data = input().split()
+s = data[0]
+k = int(data[1])
+
+result = minimal_lexicographical_string(s, k)
+print(result)
+```

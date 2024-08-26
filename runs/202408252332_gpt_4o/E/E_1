@@ -1,0 +1,27 @@
+```python
+import sys
+input = sys.stdin.read
+data = input().split()
+
+N = int(data[0])
+K = int(data[1])
+pollens = list(map(int, data[2:]))
+
+def sum_of_digits(x):
+    return sum(map(int, str(x)))
+
+turns = 0
+while turns < K:
+    max_pollen_index = max(range(N), key=lambda i: pollens[i])
+    if pollens[max_pollen_index] == 0:
+        if turns + 1 == K:
+            print(0)
+            exit()
+    else:
+        pollen_collected = sum_of_digits(pollens[max_pollen_index])
+        pollens[max_pollen_index] -= pollen_collected
+        if turns + 1 == K:
+            print(pollen_collected)
+            exit()
+    turns += 1
+```

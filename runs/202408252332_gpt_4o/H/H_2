@@ -1,0 +1,47 @@
+```python
+import sys
+import bisect
+input = sys.stdin.read
+
+data = input().split()
+N = int(data[0])
+S = int(data[1])
+
+# Parsing inputs
+jobs = []
+index = 2
+for _ in range(N):
+    l = int(data[index])
+    r = int(data[index + 1])
+    c = int(data[index + 2])
+    jobs.append((l, r, c))
+    index += 3
+
+# Sort jobs by end time
+jobs.sort(key=lambda job: job[1])
+
+# dp array to store maximum profit up to the end time of each job
+dp = [0] * N
+end_times = [jobs[i][1] for i in range(N)]
+
+# Creating helper to find previous job that can be undertaken before current job start time
+def find_prev_job(end_times, current_job_start):
+    idx = bisect.bisect_right(end_times, current_job_start - 1)
+    return idx - 1
+
+# Filling the dp array
+for i in range(N):
+    l, r, c = jobs[i]
+    profit = (r - l + 1) * S - c
+
+    if i > 0:
+        profit = max(profit, dp[i - 1])
+    prev_job_idx = find_prev_job(end_times, l)
+    
+    if prev_job_idx != -1:
+        profit = max(profit, dp[prev_job_idx] + (r - l + 1) * S - c)
+    
+    dp[i] = profit
+
+print(dp[-1])
+```

@@ -1,0 +1,26 @@
+```python
+import sys
+input = sys.stdin.read
+
+data = input().split()
+N = int(data[0])
+sequence = list(map(int, data[1:]))
+
+even_count = 1  # Há sempre um subvetor com zero uns ímpares no início
+odd_count = 0
+current_parity = 0
+result = 0
+
+for bit in sequence:
+    if bit == 1:
+        current_parity = 1 - current_parity
+    
+    if current_parity == 0:
+        result += odd_count
+        even_count += 1
+    else:
+        result += even_count
+        odd_count += 1
+
+print(result)
+```

@@ -1,0 +1,53 @@
+```python
+import sys
+input = sys.stdin.read
+from collections import defaultdict, deque
+
+def main():
+    data = input().split()
+    N = int(data[0])
+    parents = list(map(int, data[1:N]))
+    likes = list(map(int, data[N:N+N]))
+    
+    # Create an adjacency list for the tree
+    tree = defaultdict(list)
+    for i in range(2, N+1):
+        tree[parents[i-2]].append(i)
+    
+    # Use BFS to traverse the tree and keep track of max photos
+    dp = [-1] * (N + 1)
+    dp[1] = 1
+    queue = deque([1])
+    
+    while queue:
+        node = queue.popleft()
+        for child in tree[node]:
+            dp[child] = dp[node] + 1
+            queue.append(child)
+    
+    output = [0] * (N - 1)
+    for i in range(2, N+1):
+        count = 1
+        max_photos = 0
+        current_path = [(likes[0], 1)]
+        queue = deque([(1, count)])
+        
+        while queue:
+            current_node, photos_count = queue.popleft()
+            
+            for child in tree[current_node]:
+                if likes[child-1] > current_path[-1][0]:
+                    queue.append((child, photos_count + 1))
+                    if photos_count + 1 > max_photos:
+                        max_photos = photos_count + 1
+                    current_path.append((likes[child-1], child))
+            
+            while current_path and likes[child-1] <= current_path[-1][0]:
+                current_path.pop()
+        
+        output[i-2] = max_photos
+    
+    print(' '.join(map(str, output)))
+
+main()
+```

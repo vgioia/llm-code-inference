@@ -1,0 +1,24 @@
+```python
+def soma_digitos(n):
+    return sum(int(d) for d in str(n))
+
+import sys
+input = sys.stdin.read
+data = input().strip().split()
+
+N = int(data[0])
+K = int(data[1])
+flores = list(map(int, data[2:]))
+
+for _ in range(K):
+    # Identifica a flor com a maior quantidade de pólen
+    max_polen_index = flores.index(max(flores))
+    if flores[max_polen_index] == 0:
+        polen_coletado = 0
+    else:
+        # Calcula a quantidade de polen a ser coletada
+        polen_coletado = soma_digitos(flores[max_polen_index])
+        flores[max_polen_index] -= polen_coletado
+
+print(polen_coletado)
+```

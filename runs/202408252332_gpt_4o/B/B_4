@@ -1,0 +1,23 @@
+```python
+import sys
+input = sys.stdin.read
+
+def encontrar_min_embaralhamento(N, permutacao):
+    pos = [0] * (N + 1)
+    for i in range(N):
+        pos[permutacao[i]] = i
+    max_seq = 1
+    cur_seq = 1
+    for i in range(2, N + 1):
+        if pos[i] > pos[i - 1]:
+            cur_seq += 1
+            max_seq = max(max_seq, cur_seq)
+        else:
+            cur_seq = 1
+    return N - max_seq
+
+entrada = input().strip().split()
+N = int(entrada[0])
+permutacao = list(map(int, entrada[1:]))
+print(encontrar_min_embaralhamento(N, permutacao))
+```

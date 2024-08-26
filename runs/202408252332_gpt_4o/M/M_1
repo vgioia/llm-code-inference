@@ -1,0 +1,44 @@
+```python
+import sys
+input = sys.stdin.read
+
+data = input().strip().split()
+N = int(data[0])
+graph = []
+index = 1
+
+for i in range(N):
+    graph.append([int(data[index + j]) for j in range(N)])
+    index += N
+
+def is_coherent(graph, N):
+    for k in range(N):
+        for i in range(N):
+            for j in range(N):
+                if graph[i][j] > graph[i][k] + graph[k][j]:
+                    return False
+    return True
+
+def count_removable_edges(graph, N):
+    removable_count = 0
+    for i in range(N):
+        for j in range(i + 1, N):
+            removable = True
+            for k in range(N):
+                if k != i and k != j and graph[i][j] == graph[i][k] + graph[k][j]:
+                    removable = False
+                    break
+            if removable:
+                for k in range(N):
+                    if k != i and k != j and graph[i][j] == graph[j][k] + graph[k][i]:
+                        removable = False
+                        break
+            if removable:
+                removable_count += 1
+    return removable_count
+
+if not is_coherent(graph, N):
+    print(-1)
+else:
+    print(count_removable_edges(graph, N))
+```

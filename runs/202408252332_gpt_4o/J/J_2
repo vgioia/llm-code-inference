@@ -1,0 +1,61 @@
+```python
+import math
+import sys
+input = sys.stdin.read
+
+def distance(x1, y1, x2, y2):
+    return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+
+def point_to_segment(x, y, x1, y1, x2, y2):
+    if x1 == x2:
+        d1 = abs(x - x1)
+        d2 = distance(x, y, x1, y1)
+        d3 = distance(x, y, x2, y2)
+        return min(d1 if y1 <= y <= y2 or y2 <= y <= y1 else float('inf'), d2, d3)
+    if y1 == y2:
+        d1 = abs(y - y1)
+        d2 = distance(x, y, x1, y1)
+        d3 = distance(x, y, x2, y2)
+        return min(d1 if x1 <= x <= x2 or x2 <= x <= x1 else float('inf'), d2, d3)
+    return float('inf')
+
+data = input().strip().split()
+v1 = (int(data[0]), int(data[1]))
+v2 = (int(data[2]), int(data[3]))
+v3 = (int(data[4]), int(data[5]))
+v4 = (int(data[6]), int(data[7]))
+N = int(data[8])
+
+players = []
+i = 9
+for _ in range(N):
+    players.append((int(data[i]), int(data[i + 1])))
+    i += 2
+
+corners = [v1, v2, v3, v4]
+edges = [(v1, v2), (v2, v3), (v3, v4), (v4, v1)]
+
+def max_min_dist(x, y):
+    return min(distance(x, y, px, py) for px, py in players)
+
+min_dist = float('-inf')
+for corner in corners:
+    min_dist = max(min_dist, max_min_dist(corner[0], corner[1]))
+
+for (x1, y1), (x2, y2) in edges:
+    def f(t):
+        xt = x1 + t * (x2 - x1)
+        yt = y1 + t * (y2 - y1)
+        return max_min_dist(xt, yt)
+    lo, hi = 0, 1
+    while hi - lo > 1e-7:
+        mid1 = lo + (hi - lo) / 3
+        mid2 = hi - (hi - lo) / 3
+        if f(mid1) < f(mid2):
+            lo = mid1
+        else:
+            hi = mid2
+    min_dist = max(min_dist, f(lo))
+
+print(f"{min_dist:.12f}")
+```

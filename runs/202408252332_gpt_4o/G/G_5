@@ -1,0 +1,30 @@
+```python
+import sys
+input = sys.stdin.read
+
+data = input().split()
+N = int(data[0])
+coordinates = [(int(data[i * 2 + 1]), int(data[i * 2 + 2])) for i in range(N)]
+
+# Identificando as capitais com posições extremas.
+extreme_kingdoms = set()
+min_x = min_y = float('inf')
+max_x = max_y = float('-inf')
+
+for idx, (x, y) in enumerate(coordinates):
+    if x < min_x:
+        min_x = x
+        extreme_kingdoms.add(idx + 1)
+    if x > max_x:
+        max_x = x
+        extreme_kingdoms.add(idx + 1)
+    if y < min_y:
+        min_y = y
+        extreme_kingdoms.add(idx + 1)
+    if y > max_y:
+        max_y = y
+        extreme_kingdoms.add(idx + 1)
+
+# Imprimindo os reinos com territórios infinitos em ordem crescente
+print(" ".join(map(str, sorted(extreme_kingdoms))) + '\n')
+```

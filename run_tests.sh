@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RUN_NAME="202408252105_llama3_8b"
+RUN_NAME="202408252332_gpt_4o"
 CODE_PATH="./runs/$RUN_NAME"
 PYTHON_PATH="./temp/$RUN_NAME"
 TEST_TASK_DIR="./tests"
@@ -21,7 +21,7 @@ for task in $CODE_PATH/*; do
         runname=$(basename "$run")
         
         python_file="$PYTHON_PATH/$taskname/$runname.py"
-        sed 's/```//g' $run > $python_file
+        sed 's/```//g ; s/python//g'  $run > $python_file
 
         mkdir -p $LOG_PATH/$taskname
         log_file=$LOG_PATH/$taskname/$runname
@@ -40,7 +40,6 @@ for task in $CODE_PATH/*; do
                 echo "Timed out when executing $filename"
                 echo "TIMEOUT" >> $log_file
             else
-                # Compare the actual output with the expected output
                 if diff -q $actual_output $expected_output > /dev/null; then
                     echo "PASSED" >> $log_file
                 else
@@ -56,7 +55,6 @@ for task in $CODE_PATH/*; do
             rm $actual_output
         done
 
-        rm $python_file
         rm -r $TEST_TASK_DIR/$taskname/$runname
     done
 done

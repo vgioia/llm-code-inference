@@ -1,0 +1,29 @@
+```python
+import sys
+input = sys.stdin.read
+mod = 998244353
+
+def compute_polynomial(t_coeffs, p_coeffs, k, n):
+    q_coeffs = [0] * (n + 1)
+    
+    for i in range(n + 1):
+        t_term = 0
+        if 0 <= i + k <= n:
+            t_term = t_coeffs[i + k]
+        p_term = 0
+        if 0 <= i - k <= n:
+            p_term = p_coeffs[i - k]
+        q_coeffs[i] = (t_term + p_term) % mod
+    
+    return q_coeffs
+
+data = input().strip().split()
+n = int(data[0])
+k = int(data[1])
+t_coeffs = list(map(int, data[2:n+3]))
+p_coeffs = list(map(int, data[n+3:2*n+4]))
+
+q_coeffs = compute_polynomial(t_coeffs, p_coeffs, k, n)
+
+print(' '.join(map(str, q_coeffs)))
+```

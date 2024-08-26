@@ -1,0 +1,54 @@
+```python
+import math
+import sys
+input = sys.stdin.read
+
+data = input().split()
+
+# Leitura dos vértices da quadra
+quad_vertices = [(int(data[i]), int(data[i + 1])) for i in range(0, 8, 2)]
+# Leitura do número de jogadores
+N = int(data[8])
+# Leitura das coordenadas dos jogadores
+players = [(int(data[9 + 2 * i]), int(data[9 + 2 * i + 1])) for i in range(N)]
+
+# Função para calcular a distância de um ponto a um segmento de linha
+def distance_point_to_segment(px, py, ax, ay, bx, by):
+    segment_length_squared = (bx - ax) ** 2 + (by - ay) ** 2
+    if segment_length_squared == 0:
+        return math.sqrt((px - ax) ** 2 + (py - ay) ** 2)
+    t = max(0, min(1, ((px - ax) * (bx - ax) + (py - ay) * (by - ay)) / segment_length_squared))
+    projection_x = ax + t * (bx - ax)
+    projection_y = ay + t * (by - ay)
+    return math.sqrt((px - projection_x) ** 2 + (py - projection_y) ** 2)
+
+# Encontrar todos os pontos relevantes na borda da quadra
+border_points = [
+    (quad_vertices[0][0] + i, quad_vertices[0][1]) for i in range(quad_vertices[1][0] - quad_vertices[0][0])
+] + [
+    (quad_vertices[1][0], quad_vertices[1][1] + i) for i in range(quad_vertices[2][1] - quad_vertices[1][1])
+] + [
+    (quad_vertices[2][0] + i, quad_vertices[2][1]) for i in range(quad_vertices[3][0] - quad_vertices[2][0])
+] + [
+    (quad_vertices[3][0], quad_vertices[3][1] + i) for i in range(quad_vertices[0][1] - quad_vertices[3][1])
+]
+
+# Adicionar vértices da quadra também como pontos de interesse
+border_points.extend(quad_vertices)
+
+# Encontrar a mínima distância máxima
+max_jump_distance = 0
+
+for px, py in border_points:
+    min_distance = float('inf')
+    for jx, jy in players:
+        dx = px - jx
+        dy = py - jy
+        distance = math.sqrt(dx * dx + dy * dy)
+        if distance < min_distance:
+            min_distance = distance
+    if min_distance > max_jump_distance:
+        max_jump_distance = min_distance
+
+print(f'{max_jump_distance:.12f}')
+```

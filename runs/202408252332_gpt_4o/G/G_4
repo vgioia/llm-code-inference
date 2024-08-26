@@ -1,0 +1,24 @@
+```python
+import sys
+
+input = sys.stdin.read
+data = input().split()
+
+N = int(data[0])
+coordinates = [(int(data[2 * i + 1]), int(data[2 * i + 2])) for i in range(N)]
+
+# Getting min/max of x and y coordinates
+min_x = min(coordinates, key=lambda x: x[0])[0]
+max_x = max(coordinates, key=lambda x: x[0])[0]
+min_y = min(coordinates, key=lambda x: x[1])[1]
+max_y = max(coordinates, key=lambda x: x[1])[1]
+
+# Kingdoms with infinite territories
+infinite_kingdoms = set()
+for i, (x, y) in enumerate(coordinates):
+    if x == min_x or x == max_x or y == min_y or y == max_y:
+        infinite_kingdoms.add(i + 1)
+
+# Output the result
+print(' '.join(map(str, sorted(infinite_kingdoms))))
+```

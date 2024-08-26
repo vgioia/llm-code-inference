@@ -1,0 +1,22 @@
+```python
+def lexicographically_minimal_string(S, K):
+    n = len(S)
+    min_string = S
+    
+    for i in range(n // K):
+        potential_string = list(S)
+        for j in range(i, n, K):
+            min_char = min(potential_string[j::K])
+            min_char_index = potential_string[j::K].index(min_char) * K + j
+            potential_string[j], potential_string[min_char_index] = potential_string[min_char_index], potential_string[j]
+        min_string = min(min_string, ''.join(potential_string))
+    
+    return min_string
+
+import sys
+input = sys.stdin.read
+data = input().split()
+S = data[0]
+K = int(data[1])
+print(lexicographically_minimal_string(S, K))
+```
