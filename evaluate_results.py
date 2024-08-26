@@ -46,4 +46,4 @@ for run in os.listdir(LOGS_PATH):
 
             p = np.append(p, pass_at_k(n, c, k))
 
-        print(f'pass@{k} of run {run} is {100 * round(np.mean(p), 4)}%')
+        print(f'pass@{k} of run {run} is {round(100 * np.mean(p), 2)}%')

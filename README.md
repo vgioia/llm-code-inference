@@ -11,3 +11,10 @@ Also, you need to install a LLM to inference python code from the contest tasks.
 Once one its version is running, you are set to run `inference.py`. It will produce outputs inside `runs` which will be later used along with tests.
 
 Now, you are set to run `run_tests.sh`. Once the execution logs are saved in `logs` folder, execute `evaluate_results.py` to obtain metrics about model solving proposed tasks.
+
+Based on local executions, the following `pass@k`s have been observed:
+|        | gpt-4o       | llama3.1:70b |
+| ------ | ------ | ------------ |
+| pass@1       | 36.92%       | 39.04%                   |
+| pass@3       | 41.15%       | 39.23%                   |
+| pass@5       | 42.82%       | 40.38%                   |
