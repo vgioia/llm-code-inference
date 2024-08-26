@@ -1,0 +1,25 @@
+```python
+from sys import stdin
+from bisect import bisect_left
+
+N = int(stdin.readline())
+p = list(map(int, stdin.readline().split()))
+v = list(map(int, stdin.readline().split()))
+
+arestas = [[] for _ in range(N)]
+for i in range(N-1):
+    arestas[p[i]-1].append(i+1)
+
+respostas = [0]*N
+respostas[0] = 1
+fila = [(v[0], 0)]
+while fila:
+    curtidas, no = fila.pop()
+    for vizinho in arestas[no]:
+        if v[vizinho-1] > curtidas:
+            idx = bisect_left(fila, (v[vizinho-1], 0))
+            fila.insert(idx, (v[vizinho-1], vizinho-1))
+            respostas[vizinho-1] = max(respostas[vizinho-1], respostas[no]+1)
+
+print(*respostas[1:])
+```

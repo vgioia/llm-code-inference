@@ -1,0 +1,11 @@
+```python
+n, h = map(int, input().split())
+diversoes = list(map(int, input().split()))
+
+count = 0
+for d in diversoes:
+    if d <= h:
+        count += 1
+
+print(count)
+```

@@ -1,0 +1,15 @@
+```python
+n, k = map(int, input().split())
+flores = list(map(int, input().split()))
+i = 0
+for _ in range(k - 1):
+    flor_max = max(flores)
+    pólen_coletado = sum(int(digit) for digit in str(flor_max))
+    if pólen_coletado <= 0:
+        break
+    index_max = flores.index(flor_max)
+    flores[index_max] -= pólen_coletado
+new_flor_max = max(flores)
+pólen_coletado_por_Gertrude = sum(int(digit) for digit in str(new_flor_max))
+print(pólen_coletado_por_Gertrude)
+```

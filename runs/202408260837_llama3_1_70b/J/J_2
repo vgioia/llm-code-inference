@@ -1,0 +1,86 @@
+```python
+import sys
+import math
+
+vertices = []
+for _ in range(4):
+    vertices.append(list(map(int, sys.stdin.readline().split())))
+
+n = int(sys.stdin.readline())
+
+pontos = []
+for _ in range(n):
+    pontos.append(list(map(int, sys.stdin.readline().split())))
+
+minx, miny, maxx, maxy = float('inf'), float('inf'), float('-inf'), float('-inf')
+for v in vertices:
+    minx = min(minx, v[0])
+    maxx = max(maxx, v[0])
+    miny = min(miny, v[1])
+    maxy = max(maxy, v[1])
+
+melhor_dist = float('inf')
+
+def calcular_dist(x, y):
+    menor = float('inf')
+    for ponto in pontos:
+        menor = min(menor, math.hypot(ponto[0] - x, ponto[1] - y))
+    return menor
+
+def funcao_objectivo(tentativa):
+    p1 = [minx + (maxx - minx) * tentativa / melhor_dist, miny]
+    p2 = [maxx, miny + (maxy - miny) * tentativa / melhor_dist]
+    p3 = [minx + (maxx - minx) * tentativa / melhor_dist, maxy]
+    p4 = [maxx, miny + (maxy - miny) * tentativa / melhor_dist]
+
+    melhor_tentativa = 0
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(p1[0], p1[1]))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(p2[0], p2[1]))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(p3[0], p3[1]))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(p4[0], p4[1]))
+
+    for y in [miny, maxy]:
+        melhor_tentativa = max(melhor_tentativa, calcular_dist(maxx, y))
+        melhor_tentativa = max(melhor_tentativa, calcular_dist(minx, y))
+
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(minx + (maxx - minx) / 2, miny + (maxy - miny) / 2))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(maxx, miny + (maxy - miny) / 2))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(maxx, miny + (maxy - miny) / 3))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(maxx, miny + (maxy - miny) * 2 / 3))
+
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(maxx / 3, maxy))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(2 * maxx / 3, maxy))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(minx, maxy - (maxy - miny) / 3))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(minx, maxy - 2 * (maxy - miny) / 3))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(maxx - maxx / 3, maxy))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(maxx - maxx / 2, maxy))
+
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(maxx - 2 * maxx / 3, maxy))
+
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(maxx / 3, maxy))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(2 * maxx / 3, maxy))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(minx + (maxx - minx) / 4, maxy - (maxy - miny) / 3))
+    melhor_tentativa = max(melhor_tentativa, calcular_dist(maxx, miny + 3 * (maxy - miny) / 4))
+
+    return melhor_tentativa
+
+baixo, alto = 0, max(math.hypot(maxx - minx, maxy - miny), 5e8)
+
+for i in range(300):
+    medio = (baixo + alto) / 2
+    d1 = funcao_objectivo(medio - 0.001)
+    d2 = funcao_objectivo(medio)
+    d3 = funcao_objectivo(medio + 0.001)
+    melhor_dist = min(melhor_dist, min(d1, d2, d3))
+
+    if d2 <= d1 and d2 <= d3:
+        print(round(d2, 5))
+        exit()
+
+    if d1 <= d3:
+        alto = medio - 0.001
+    else:
+        baixo = medio + 0.001
+
+print(round(funcao_objectivo(medido), 5))
+```

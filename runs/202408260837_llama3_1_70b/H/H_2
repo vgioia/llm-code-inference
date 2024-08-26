@@ -1,0 +1,38 @@
+```python
+import sys
+import heapq
+
+input = sys.stdin.readline
+
+N, S = map(int, input().split())
+
+trabalhos = []
+for _ in range(N):
+    l, r, c = map(int, input().split())
+    trabalhos.append((l, r, c))
+
+trabalhos.sort()
+
+fim = -1
+custo = 0
+lucro = 0
+fila = []
+for l, r, c in trabalhos:
+    while fila and fila[0] <= l:
+        heapq.heappop(fila)
+    if fim < l:
+        finais = list(fila)
+        finais.sort()
+        for f in finais:
+            if f > l:
+                lucro += (f - l) * S
+                if fim < l:
+                    fim = l
+                    custo -= c
+    fim = max(fim, r)
+    lucro += (fim - l) * S
+    custo += c
+    heapq.heappush(fila, r)
+
+print(lucro - custo)
+```

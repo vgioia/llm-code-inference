@@ -1,0 +1,42 @@
+```python
+import sys
+
+def ler_entrada():
+    return sys.stdin.readline().strip()
+
+def ler_inteiro():
+    return int(ler_entrada())
+
+def ler_inteiros():
+    return list(map(int, ler_entrada().split()))
+
+def escrever_saida(saida):
+    sys.stdout.write(str(saida) + '\n')
+
+def calcular_distancia(x1, y1, x2, y2):
+    return abs(x1 - x2) + abs(y1 - y2)
+
+def verificar_fronteira(x, y, capitais):
+    for i in range(len(capitais)):
+        if calcular_distancia(x, y, capitais[i][0], capitais[i][1]) <= 1:
+            return False
+    return True
+
+def verificar_territorio_indefinido(capitais, reino):
+    x, y = capitais[reino]
+    for i in range(-1, 2):
+        for j in range(-1, 2):
+            if abs(i) + abs(j) == 1:
+                if verificar_fronteira(x + i, y + j, capitais):
+                    return True
+    return False
+
+def main():
+    n = ler_inteiro()
+    capitais = [ler_inteiros() for _ in range(n)]
+    reinos_indefinidos = [i + 1 for i in range(n) if verificar_territorio_indefinido(capitais, i)]
+    escrever_saida(' '.join(map(str, reinos_indefinidos)))
+
+if __name__ == '__main__':
+    main()
+```

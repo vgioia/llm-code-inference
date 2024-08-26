@@ -1,0 +1,24 @@
+```python
+import heapq
+
+n, k = map(int, input().split())
+flores = list(map(int, input().split()))
+
+flores_invertidas = [(-x, x) for x in flores]
+heapq.heapify(flores_invertidas)
+
+for _ in range(k - 1):
+    _, mais_polens = heapq.heappop(flores_invertidas)
+    if mais_polens == 0:
+        break
+    mais_polens -= sum(map(int, str(mais_polens)))
+    heapq.heappush(flores_invertidas, (-mais_polens, mais_polens))
+
+if flores_invertidas:
+    _, mais_polens = heapq.heappop(flores_invertidas)
+    polens_coletados = sum(map(int, str(mais_polens)))
+else:
+    polens_coletados = 0
+
+print(polens_coletados)
+```

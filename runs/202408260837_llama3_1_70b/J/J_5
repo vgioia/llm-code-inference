@@ -1,0 +1,63 @@
+```python
+import math
+
+def dist(x1, y1, x2, y2):
+    return math.sqrt((x1 - x2)**2 + (y1 - y2)**2)
+
+def menor_distancia_ponto_retangulo(x, y, x1, y1, x2, y2):
+    if x < x1:
+        if y < y1:
+            return dist(x, y, x1, y1)
+        elif y > y2:
+            return dist(x, y, x1, y2)
+        else:
+            return dist(x, y, x1, y)
+    elif x > x2:
+        if y < y1:
+            return dist(x, y, x2, y1)
+        elif y > y2:
+            return dist(x, y, x2, y2)
+        else:
+            return dist(x, y, x2, y)
+    else:
+        if y < y1:
+            return dist(x, y, x, y1)
+        elif y > y2:
+            return dist(x, y, x, y2)
+        else:
+            return 0
+
+def menor_distancia_ponto_jogadores(x, y, jogadores):
+    menor_distancia = float('inf')
+    for jogador in jogadores:
+        distancia = dist(x, y, jogador[0], jogador[1])
+        menor_distancia = min(menor_distancia, distancia)
+    return menor_distancia
+
+def main():
+    vertices = []
+    for _ in range(4):
+        x, y = map(int, input().split())
+        vertices.append((x, y))
+    n = int(input())
+    jogadores = []
+    for _ in range(n):
+        x, y = map(int, input().split())
+        jogadores.append((x, y))
+
+    x1, y1 = vertices[0]
+    x2, y2 = vertices[2]
+
+    maior_pulo = float('-inf')
+    for x in range(x1, x2 + 1):
+        for y in range(y1, y2 + 1):
+            pulo = maior_pulo
+            pulo = max(pulo, menor_distancia_ponto_retangulo(x, y, x1, y1, x2, y2))
+            pulo = max(pulo, menor_distancia_ponto_jogadores(x, y, jogadores))
+            maior_pulo = max(maior_pulo, pulo)
+
+    print(maior_pulo)
+
+if __name__ == "__main__":
+    main()
+```

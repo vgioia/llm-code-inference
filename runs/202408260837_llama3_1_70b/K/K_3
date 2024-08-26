@@ -1,0 +1,41 @@
+```python
+MOD = 998244353
+
+def potencia(a, b):
+    if b == 0:
+        return 1
+    elif b % 2 == 0:
+        return potencia((a * a) % MOD, b // 2)
+    else:
+        return (a * potencia(a, b - 1)) % MOD
+
+def comb(n, k):
+    if k < 0 or k > n:
+        return 0
+    else:
+        return (fatorial(n) * inverso(fatorial(k)) * inverso(fatorial(n - k))) % MOD
+
+def fatorial(n):
+    if n == 0:
+        return 1
+    else:
+        return (n * fatorial(n - 1)) % MOD
+
+def inverso(a):
+    return potencia(a, MOD - 2)
+
+N, K = map(int, input().split())
+t = list(map(int, input().split()))
+p = list(map(int, input().split()))
+
+q = [0] * (N + 1)
+for i in range(N + 1):
+    for j in range(N + 1):
+        if i + j <= N:
+            q[i + j] += (t[i] * comb(i, j) * potencia(K, j) * (-1) ** j + p[i] * comb(i, j) * potencia(-K, j) * (-1) ** j) % MOD
+
+for i in range(N + 1):
+    q[i] %= MOD
+
+print(*q)
+```

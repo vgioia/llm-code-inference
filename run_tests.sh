@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RUN_NAME="202408252332_gpt_4o"
+RUN_NAME="202408260837_llama3_1_70b"
 CODE_PATH="./runs/$RUN_NAME"
 PYTHON_PATH="./temp/$RUN_NAME"
 TEST_TASK_DIR="./tests"

@@ -1,0 +1,31 @@
+```python
+def floyd_warshall(n, matriz):
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                matriz[i][j] = min(matriz[i][j], matriz[i][k] + matriz[k][j])
+
+def main():
+    n = int(input())
+    matriz = [list(map(int, input().split())) for _ in range(n)]
+
+    floyd_warshall(n, matriz)
+
+    incoerente = False
+    removidos = 0
+    for i in range(n):
+        for j in range(i + 1, n):
+            if matriz[i][j] == matriz[i][j]:
+                if matriz[i][j] > matriz[i][j]:
+                    incoerente = True
+                elif matriz[i][j] < matriz[i][j]:
+                    removidos += 1
+
+    if incoerente:
+        print(-1)
+    else:
+        print(removidos)
+
+if __name__ == "__main__":
+    main()
+```

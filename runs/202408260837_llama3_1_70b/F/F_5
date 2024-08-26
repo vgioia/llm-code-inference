@@ -1,0 +1,34 @@
+```python
+d, c, r = map(int, input().split())
+tiroes = []
+for _ in range(c):
+    tiroes.append(int(input()))
+musicais = []
+for _ in range(r):
+    musicais.append(int(input()))
+musicais.sort()
+
+total_realizados = 0
+falta_energia = 0
+
+while falta_energia < len(tiroes) or total_realizados < len(musicais):
+    while falta_energia < len(tiroes) and d >= tiroes[falta_energia]:
+        d -= tiroes[falta_energia]
+        falta_energia += 1
+        total_realizados += 1
+
+    if falta_energia == len(tiroes) or total_realizados == len(musicais):
+        break
+
+    while musicais and musicais[0] <= 0:
+        musicais.pop(0)
+
+    if not musicais:
+        break
+
+    d += musicais[0]
+    musicais.pop(0)
+    total_realizados += 1
+
+print(total_realizados)
+```

@@ -1,0 +1,18 @@
+```python
+n = int(input())
+b = list(map(int, input().split()))
+
+contagem = 0
+zeros = 0
+uns = 0
+
+for i in range(n):
+    if b[i] == 0:
+        contagem += uns * (uns + 1) // 2
+        zeros += 1
+    else:
+        contagem += zeros * (zeros + 1) // 2
+        uns += 1
+
+print(contagem)
+```

@@ -1,0 +1,11 @@
+```python
+s = input()
+k = int(input())
+n = len(s)
+ans = list(s)
+for i in range(0, n, k):
+    sub = sorted(ans[i:i+k])
+    for j in range(i, i+k):
+        ans[j] = sub.pop(0)
+print(''.join(ans))
+```

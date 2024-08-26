@@ -1,0 +1,8 @@
+```python
+n, h = map(int, input().split())
+brinquedos = list(map(int, input().split()))
+
+contagem = sum(1 for brinquedo in brinquedos if brinquedo <= h)
+
+print(contagem)
+```

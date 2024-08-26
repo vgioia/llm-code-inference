@@ -1,0 +1,50 @@
+```python
+def find_steps(a):
+    def inv_count(arr):
+        n = len(arr)
+        inv_count = 0
+        for i in range(n):
+            for j in range(i + 1, n):
+                if arr[i] > arr[j]:
+                    inv_count += 1
+        return inv_count
+
+    a = list(map(int, a.split()))
+    original = [x for x in range(1, len(a) + 1)]
+
+    original_sorted = sorted(original)
+    a_sorted = sorted(a)
+
+    return inv_count(original) - inv_count(original_sorted)
+
+N = int(input())
+p = input()
+
+import math
+
+N_steps = int(math.ceil(math.log(N + 1) / math.log(2)))
+aux_vector = []
+number_in_original_pos = N + 1
+
+steps = 0
+
+aux_vector = [i + 1 for i in range(N)]
+
+p_vector = [int(i) for i in p.split(' ')] 
+
+if sorted(p_vector) != aux_vector:
+    exit
+
+N = int(N)
+
+if p_vector[0] != 1 and p_vector[N-1] != 1:
+    number_in_original_pos -= 2
+
+if N_steps >= 3 and p_vector[0] == p_vector[2] + 1:
+    for j in range(N-2,0,-1):
+        if p_vector[j] + 1 != p_vector[j - 1]:
+            number_in_original_pos -= 1
+            break
+
+print (number_in_original_pos-1)
+```
