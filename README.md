@@ -15,6 +15,6 @@ Now, you are set to run `run_tests.sh`. Once the execution logs are saved in `lo
 Based on local executions, the following `pass@k`s have been observed:
 |        | gpt-4o       | llama3.1:70b |
 | ------ | ------ | ------------ |
-| pass@1       | 36.92%       | 39.04%                   |
-| pass@3       | 41.15%       | 39.23%                   |
-| pass@5       | 42.82%       | 40.38%                   |
+| pass@1       | 24.62%       | 13.85%                   |
+| pass@3       | 30.00%       | 15.38%                   |
+| pass@5       | 30.77%       | 15.38%                   |
