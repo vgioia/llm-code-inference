@@ -23,17 +23,21 @@ def is_correct(file_path):
             if status == FAILURE_STATUS:
                 return False
 
+            if status == TIMEOUT_STATUS:
+                return False
+
         return True
 
 n = 5
 c = 0
 ks = [1, 3, 5]
-p = np.array([])
 
 for run in os.listdir(LOGS_PATH):
     run_path = os.path.join(LOGS_PATH, run)
 
     for k in ks:
+        p = np.array([])
+
         for task_dir in os.listdir(run_path):
             full_task_dir = os.path.join(run_path, task_dir)
             c = 0
